@@ -13,3 +13,7 @@ config_version=5
 config/name="Ocean_Invader"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.195421, 4.23551e-06, 0.853707, 1)
