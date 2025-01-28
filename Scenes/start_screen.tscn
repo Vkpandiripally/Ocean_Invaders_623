@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca2yf68iacth1"]
+[gd_scene load_steps=6 format=3 uid="uid://b4d3m1mqpvadr"]
 
-[ext_resource type="Script" path="res://start_screen.gd" id="1_101l1"]
+[ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_101l1"]
 [ext_resource type="Texture2D" uid="uid://m4ub6oll4ikv" path="res://Assets/Invaders/Invader3-1.png" id="1_ojfu6"]
 [ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="2_nlfpm"]
 [ext_resource type="Texture2D" uid="uid://bn227mp3yqjlo" path="res://Assets/Invaders/Invader2-1.png" id="3_haxs7"]
