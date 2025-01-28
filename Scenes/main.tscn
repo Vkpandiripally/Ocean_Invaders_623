@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://l84t8jmtowc5"]
+[gd_scene load_steps=4 format=3 uid="uid://l84t8jmtowc5"]
 
 [ext_resource type="PackedScene" uid="uid://fupd1v1pxa3a" path="res://Scenes/player.tscn" id="1_11fx2"]
+[ext_resource type="PackedScene" uid="uid://bya8ci6vmax2" path="res://Scenes/invader_spawner.tscn" id="1_gqwgy"]
+[ext_resource type="PackedScene" uid="uid://duw7gg6161xho" path="res://Scenes/laser_catcher.tscn" id="2_tjl1t"]
 
 [node name="main" type="Node"]
+
+[node name="InvaderSpawner" parent="." instance=ExtResource("1_gqwgy")]
 
 [node name="Player" parent="." instance=ExtResource("1_11fx2")]
 position = Vector2(0, 302)
 scale = Vector2(4, 4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="laser_catcher" parent="." instance=ExtResource("2_tjl1t")]

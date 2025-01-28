@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bya8ci6vmax2"]
+
+[ext_resource type="Script" path="res://Scripts/invader_spawner.gd" id="1_chg0f"]
+
+[node name="InvaderSpawner" type="Node2D"]
+position = Vector2(0, -190)
+script = ExtResource("1_chg0f")

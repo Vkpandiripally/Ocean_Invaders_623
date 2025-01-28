@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://fupd1v1pxa3a"]
+[gd_scene load_steps=6 format=3 uid="uid://fupd1v1pxa3a"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gt454"]
 [ext_resource type="Texture2D" uid="uid://dt0af4o7yh41a" path="res://Assets/Player/Player.png" id="2_11s6y"]
+[ext_resource type="Script" path="res://Scripts/shot_origin.gd" id="3_2uoqw"]
+[ext_resource type="PackedScene" uid="uid://wyy01l5ykmu2" path="res://Scenes/laser.tscn" id="4_mdyvr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tbny"]
 size = Vector2(13, 5)
@@ -16,3 +18,8 @@ texture = ExtResource("2_11s6y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_5tbny")
+
+[node name="ShotOrigin" type="Node2D" parent="."]
+position = Vector2(0, -4)
+script = ExtResource("3_2uoqw")
+laser_scene = ExtResource("4_mdyvr")
