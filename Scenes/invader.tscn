@@ -29,22 +29,6 @@ tracks/0/keys = {
 "values": [ExtResource("1_3dy66")]
 }
 
-[sub_resource type="Animation" id="Animation_ka551"]
-resource_name = "destory"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("8_dus1b"), ExtResource("9_ndrok")]
-}
-
 [sub_resource type="Animation" id="Animation_7rdw5"]
 resource_name = "move_1"
 loop_mode = 1
@@ -93,10 +77,26 @@ tracks/0/keys = {
 "values": [ExtResource("1_3dy66"), ExtResource("3_pkxyw")]
 }
 
+[sub_resource type="Animation" id="Animation_ka551"]
+resource_name = "destroy"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_dus1b"), ExtResource("9_ndrok"), null]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0xixl"]
 _data = {
 "RESET": SubResource("Animation_dmbio"),
-"destory": SubResource("Animation_ka551"),
+"destroy": SubResource("Animation_ka551"),
 "move_1": SubResource("Animation_7rdw5"),
 "move_2": SubResource("Animation_u36to"),
 "move_3": SubResource("Animation_11bof")
@@ -105,7 +105,7 @@ _data = {
 [node name="Invader" type="Area2D"]
 light_mask = 0
 collision_layer = 4
-collision_mask = 32
+collision_mask = 34
 script = ExtResource("1_n2doj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -124,3 +124,6 @@ shape = SubResource("CircleShape2D_it4md")
 libraries = {
 "": SubResource("AnimationLibrary_0xixl")
 }
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

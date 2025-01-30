@@ -1,8 +1,9 @@
 extends Area2D
-
+class_name Player
 var speed = 200
 var direction = Vector2.ZERO
 @onready var collision_rect: CollisionShape2D = $CollisionShape2D
+@onready var animation_player = $AnimationPlayer
 var start_bound
 var end_bound
 
@@ -34,4 +35,8 @@ func _process(delta: float) -> void:
 		 
 		return
 	position.x += delta_movement
+	
+func on_player_destroyed():
+	speed = 0
+	animation_player.play("player_destroy")
 				

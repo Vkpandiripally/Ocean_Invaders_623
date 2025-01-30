@@ -1,12 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://fupd1v1pxa3a"]
+[gd_scene load_steps=12 format=3 uid="uid://fupd1v1pxa3a"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gt454"]
 [ext_resource type="Texture2D" uid="uid://dt0af4o7yh41a" path="res://Assets/Player/Player.png" id="2_11s6y"]
 [ext_resource type="Script" path="res://Scripts/shot_origin.gd" id="3_2uoqw"]
 [ext_resource type="PackedScene" uid="uid://wyy01l5ykmu2" path="res://Scenes/laser.tscn" id="4_mdyvr"]
+[ext_resource type="Texture2D" uid="uid://bi2vdab3slwgf" path="res://Assets/Player/Player-explosion1.png" id="5_svn4r"]
+[ext_resource type="Texture2D" uid="uid://b4mk25ro2nqtu" path="res://Assets/Player/Player-explosion2.png" id="6_2m5vu"]
+[ext_resource type="Texture2D" uid="uid://dsg2krqtkgnca" path="res://Assets/Player/Player-explosion3.png" id="7_4ifek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tbny"]
 size = Vector2(13, 5)
+
+[sub_resource type="Animation" id="Animation_gqwrm"]
+resource_name = "player_destroy"
+length = 2.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek"), ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek"), ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek")]
+}
+
+[sub_resource type="Animation" id="Animation_6c2ys"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_11s6y")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yeknq"]
+_data = {
+"RESET": SubResource("Animation_6c2ys"),
+"player_destroy": SubResource("Animation_gqwrm")
+}
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_gt454")
@@ -23,3 +63,8 @@ shape = SubResource("RectangleShape2D_5tbny")
 position = Vector2(0, -4)
 script = ExtResource("3_2uoqw")
 laser_scene = ExtResource("4_mdyvr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yeknq")
+}
