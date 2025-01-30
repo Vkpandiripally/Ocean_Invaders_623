@@ -46,6 +46,7 @@ func _ready() -> void:
 			var y = START_Y_POSITION + (row * INVADER_HEIGHT) + (row * VERTICAL_SPACING)
 			var spawn_start = Vector2(x,y)
 			spawn_invader(invader_config,spawn_start)
+			
 func spawn_invader(invader_config, spawn_position: Vector2):
 	var invader = invader_scene.instantiate() as Invader
 	invader.config = invader_config
@@ -54,17 +55,16 @@ func spawn_invader(invader_config, spawn_position: Vector2):
 	
 func move_invaders():
 	position.x += INVADERS_POSITION_X_INCREMENT * movement_direction
+	
 
-#this function connected via signal to the left wall in the main scene. However it doesnt work. Around 1:40:00 in the tutorial
-#when invaders hit wall, they should move closer to player and move in opposite direction.
-#Currently, invaders just go off screen. No collision with wall. Problem for left and right wall. 
-#Harrison 1/29/25 5:32pm
+#idk what i did differently but now it works. 1/30/25 4:20pm
+
 func _on_left_wall_area_entered(area: Area2D) -> void:
 	if (movement_direction == -1):
 		position.y += INVADERS_POSITION_Y_INCREMENT
 		movement_direction *= -1
 
-#same issue as left wall. This function is connected via signal to right wall in main scene. Does not work
+
 func _on_right_wall_area_entered(area: Area2D) -> void:
 	if (movement_direction == 1):
 		position.y += INVADERS_POSITION_Y_INCREMENT

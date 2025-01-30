@@ -5,7 +5,7 @@ class_name Invader
 
 @onready var sprite_2d = $Sprite2D
 @onready var animation_player = $AnimationPlayer
-var config:Resource
+var config: Resource
 
 
 # Called when the node enters the scene tree for the first time.

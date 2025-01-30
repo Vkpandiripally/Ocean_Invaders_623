@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/invader_spawner.gd" id="1_chg0f"]
 
 [node name="InvaderSpawner" type="Node2D"]
-position = Vector2(0, -190)
+light_mask = 32
+visibility_layer = 4
+position = Vector2(-256, -190)
 script = ExtResource("1_chg0f")
 
 [node name="MovementTimer" type="Timer" parent="."]

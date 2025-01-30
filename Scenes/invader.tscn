@@ -11,7 +11,39 @@
 [ext_resource type="Texture2D" uid="uid://dcoy6mphlfi8i" path="res://Assets/Invaders/Invader-explosion-2.png" id="9_ndrok"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_it4md"]
-radius = 6.75
+radius = 7.01783
+
+[sub_resource type="Animation" id="Animation_dmbio"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3dy66")]
+}
+
+[sub_resource type="Animation" id="Animation_ka551"]
+resource_name = "destory"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("8_dus1b"), ExtResource("9_ndrok")]
+}
 
 [sub_resource type="Animation" id="Animation_7rdw5"]
 resource_name = "move_1"
@@ -27,21 +59,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("6_w4x8r"), ExtResource("7_0s2rd")]
-}
-
-[sub_resource type="Animation" id="Animation_dmbio"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_3dy66")]
 }
 
 [sub_resource type="Animation" id="Animation_u36to"]
@@ -76,22 +93,6 @@ tracks/0/keys = {
 "values": [ExtResource("1_3dy66"), ExtResource("3_pkxyw")]
 }
 
-[sub_resource type="Animation" id="Animation_ka551"]
-resource_name = "destory"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("8_dus1b"), ExtResource("9_ndrok")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0xixl"]
 _data = {
 "RESET": SubResource("Animation_dmbio"),
@@ -102,6 +103,9 @@ _data = {
 }
 
 [node name="Invader" type="Area2D"]
+light_mask = 0
+collision_layer = 4
+collision_mask = 32
 script = ExtResource("1_n2doj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -112,7 +116,7 @@ texture = ExtResource("1_3dy66")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 4
 visibility_layer = 34
-position = Vector2(0, 6)
+position = Vector2(-1, 3)
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_it4md")
 

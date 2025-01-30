@@ -4,16 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://bya8ci6vmax2" path="res://Scenes/invader_spawner.tscn" id="1_gqwgy"]
 [ext_resource type="PackedScene" uid="uid://duw7gg6161xho" path="res://Scenes/laser_catcher.tscn" id="2_tjl1t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjqy7"]
-size = Vector2(24, 755)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s003n"]
+size = Vector2(22, 716)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q68x"]
-size = Vector2(99, 1339)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulp7o"]
+size = Vector2(100.5, 1327)
 
 [node name="main" type="Node"]
-
-[node name="InvaderSpawner" parent="." instance=ExtResource("1_gqwgy")]
-position = Vector2(2, -200)
 
 [node name="Player" parent="." instance=ExtResource("1_11fx2")]
 position = Vector2(0, 302)
@@ -24,33 +21,36 @@ scale = Vector2(4, 4)
 [node name="laser_catcher" parent="." instance=ExtResource("2_tjl1t")]
 position = Vector2(-7, -360)
 
+[node name="InvaderSpawner" parent="." instance=ExtResource("1_gqwgy")]
+position = Vector2(-1, -199)
+
 [node name="Walls" type="Node" parent="."]
 
-[node name="RightWall" type="Area2D" parent="Walls"]
-position = Vector2(639, 1)
-collision_layer = 32
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
-position = Vector2(-2, -10)
-shape = SubResource("RectangleShape2D_fjqy7")
-
-[node name="BottomWall" type="Area2D" parent="Walls"]
-position = Vector2(0, 358)
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
-position = Vector2(-39.5, 15.5)
-shape = SubResource("RectangleShape2D_7q68x")
-
 [node name="LeftWall" type="Area2D" parent="Walls"]
-position = Vector2(-639, 1)
+position = Vector2(-638, 20)
 collision_layer = 32
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
-position = Vector2(-2, -10)
-shape = SubResource("RectangleShape2D_fjqy7")
+position = Vector2(-1, -6.5)
+shape = SubResource("RectangleShape2D_s003n")
 
-[connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]
+[node name="RightWall" type="Area2D" parent="Walls"]
+position = Vector2(640, 0)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+position = Vector2(-1, -6.5)
+shape = SubResource("RectangleShape2D_s003n")
+
+[node name="BottomWall" type="Area2D" parent="Walls"]
+position = Vector2(-3, 361)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
+position = Vector2(-41.75, -4)
+shape = SubResource("RectangleShape2D_ulp7o")
+
 [connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawner" method="_on_left_wall_area_entered"]
+[connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]
