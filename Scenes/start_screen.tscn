@@ -36,8 +36,8 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_nlfpm")
 theme_override_font_sizes/font_size = 108
-text = "INVASIVE 
-SPECIES"
+text = "OCEAN
+INTRUDERS"
 horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer3"]
