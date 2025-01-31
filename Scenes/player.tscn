@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fupd1v1pxa3a"]
+[gd_scene load_steps=16 format=3 uid="uid://fupd1v1pxa3a"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gt454"]
 [ext_resource type="Texture2D" uid="uid://dt0af4o7yh41a" path="res://Assets/Player/Player.png" id="2_11s6y"]
@@ -10,6 +10,21 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tbny"]
 size = Vector2(13, 5)
+
+[sub_resource type="Animation" id="Animation_6c2ys"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_11s6y")]
+}
 
 [sub_resource type="Animation" id="Animation_gqwrm"]
 resource_name = "player_destroy"
@@ -27,8 +42,9 @@ tracks/0/keys = {
 "values": [ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek"), ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek"), ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek")]
 }
 
-[sub_resource type="Animation" id="Animation_6c2ys"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_2hf0v"]
+resource_name = "3_lives"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,15 +52,67 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("2_11s6y")]
+"values": [ExtResource("2_11s6y"), ExtResource("5_svn4r")]
+}
+
+[sub_resource type="Animation" id="Animation_s1tqe"]
+resource_name = "2_lives"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_svn4r"), ExtResource("6_2m5vu")]
+}
+
+[sub_resource type="Animation" id="Animation_ssgxn"]
+resource_name = "1_life"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_2m5vu"), ExtResource("7_4ifek")]
+}
+
+[sub_resource type="Animation" id="Animation_1ftgl"]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.23333, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek"), ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek"), ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yeknq"]
 _data = {
+"1_life": SubResource("Animation_ssgxn"),
+"2_lives": SubResource("Animation_s1tqe"),
+"3_lives": SubResource("Animation_2hf0v"),
 "RESET": SubResource("Animation_6c2ys"),
+"dead": SubResource("Animation_1ftgl"),
 "player_destroy": SubResource("Animation_gqwrm")
 }
 
@@ -68,3 +136,5 @@ laser_scene = ExtResource("4_mdyvr")
 libraries = {
 "": SubResource("AnimationLibrary_yeknq")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -78,3 +78,6 @@ func on_invader_shot():
 	var invader_shot = invader_shot_scene.instantiate() as InvaderShot
 	invader_shot.global_position = random_child_position
 	get_tree().root.add_child(invader_shot)
+	
+
+		

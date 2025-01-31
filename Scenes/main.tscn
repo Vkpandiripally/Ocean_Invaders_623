@@ -47,6 +47,8 @@ shape = SubResource("RectangleShape2D_s003n")
 [node name="BottomWall" type="Area2D" parent="Walls"]
 position = Vector2(-3, 361)
 rotation = 1.5708
+collision_layer = 32
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
 position = Vector2(-41.75, -4)

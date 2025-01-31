@@ -6,8 +6,11 @@ var direction = Vector2.ZERO
 @onready var animation_player = $AnimationPlayer
 var start_bound
 var end_bound
-
+@export var lives = 3
 var bounding_x
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bounding_x = collision_rect.shape.get_rect().size.x
@@ -37,6 +40,23 @@ func _process(delta: float) -> void:
 	position.x += delta_movement
 	
 func on_player_destroyed():
-	speed = 0
-	animation_player.play("player_destroy")
+	if lives == 3:
+		animation_player.play("3_lives")
+		print("2 lives left")
+		lives -= 1
+	elif lives == 2:
+		animation_player.play("2_lives")
+		print("1 life left")
+		lives -= 1
+	elif lives ==1:
+		animation_player.play("1_life")
+		print("last life")
+		lives -= 1 
+	elif lives == 0:
+		animation_player.play("dead")
+		print("dead")
+		speed = 0
+	else:
+		print(lives)
+	#animation_player.play("player_destroy")
 				
