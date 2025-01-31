@@ -9,6 +9,12 @@
 [node name="start_screen" type="CanvasLayer"]
 script = ExtResource("1_101l1")
 
+[node name="MeshInstance2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(477.748, 294.748)
+rotation = 3.14159
+texture = ExtResource("3_3rpif")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
