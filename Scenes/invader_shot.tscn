@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cess3mwdpjshl"]
+[gd_scene load_steps=4 format=3 uid="uid://cvl86n2jlr5jh"]
 
 [ext_resource type="Script" path="res://Scripts/invader_shot.gd" id="1_rep01"]
 [ext_resource type="Texture2D" uid="uid://dqyn6gkxj6slf" path="res://Assets/Weapons/Rocket.png" id="2_nfd0f"]
