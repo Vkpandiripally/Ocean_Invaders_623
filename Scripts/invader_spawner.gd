@@ -81,3 +81,6 @@ func on_invader_shot():
 	
 
 		
+func _on_bottom_wall_area_entered(area: Area2D) -> void:
+	movement_timer.stop()
+	movement_direction = 0
