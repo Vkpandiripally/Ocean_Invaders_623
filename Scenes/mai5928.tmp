@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://l84t8jmtowc5"]
+[gd_scene load_steps=8 format=3 uid="uid://l84t8jmtowc5"]
 
 [ext_resource type="PackedScene" uid="uid://fupd1v1pxa3a" path="res://Scenes/player.tscn" id="1_11fx2"]
 [ext_resource type="PackedScene" uid="uid://bya8ci6vmax2" path="res://Scenes/invader_spawner.tscn" id="1_gqwgy"]
 [ext_resource type="PackedScene" uid="uid://duw7gg6161xho" path="res://Scenes/laser_catcher.tscn" id="2_tjl1t"]
 [ext_resource type="Script" path="res://Scenes/points_counter.gd" id="5_2jk7h"]
-[ext_resource type="PackedScene" uid="uid://cwil7v5cr0s4v" path="res://Scenes/ui.tscn" id="6_r7e3t"]
 [ext_resource type="Script" path="res://Scenes/life_manager.gd" id="7_xd2rw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s003n"]
@@ -50,8 +49,6 @@ shape = SubResource("RectangleShape2D_s003n")
 [node name="BottomWall" type="Area2D" parent="Walls"]
 position = Vector2(-3, 361)
 rotation = 1.5708
-collision_layer = 32
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
 position = Vector2(-41.75, -4)
@@ -63,8 +60,5 @@ script = ExtResource("7_xd2rw")
 [node name="PointsCounter" type="Node" parent="."]
 script = ExtResource("5_2jk7h")
 
-[node name="UI" parent="." instance=ExtResource("6_r7e3t")]
-
 [connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawner" method="_on_left_wall_area_entered"]
 [connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]
-[connection signal="area_entered" from="Walls/BottomWall" to="InvaderSpawner" method="_on_bottom_wall_area_entered"]
