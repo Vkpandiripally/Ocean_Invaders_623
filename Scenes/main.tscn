@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://fupd1v1pxa3a" path="res://Scenes/player.tscn" id="1_11fx2"]
 [ext_resource type="PackedScene" uid="uid://bya8ci6vmax2" path="res://Scenes/invader_spawner.tscn" id="1_gqwgy"]
 [ext_resource type="PackedScene" uid="uid://duw7gg6161xho" path="res://Scenes/laser_catcher.tscn" id="2_tjl1t"]
-[ext_resource type="Script" path="res://Scenes/points_counter.gd" id="5_2jk7h"]
-[ext_resource type="PackedScene" uid="uid://cwil7v5cr0s4v" path="res://Scenes/ui.tscn" id="6_r7e3t"]
-[ext_resource type="Script" path="res://Scenes/life_manager.gd" id="7_xd2rw"]
+[ext_resource type="Script" path="res://Scenes/life_manager.gd" id="4_jgys5"]
+[ext_resource type="Script" path="res://Scenes/points_counter.gd" id="5_eg3ka"]
+[ext_resource type="PackedScene" uid="uid://b8ncqesi8smyt" path="res://Scenes/ui.tscn" id="6_fyc0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s003n"]
 size = Vector2(22, 716)
@@ -22,7 +22,6 @@ position = Vector2(0, 302)
 
 [node name="laser_catcher" parent="." instance=ExtResource("2_tjl1t")]
 position = Vector2(-7, -360)
-scale = Vector2(1.08, 1.2)
 
 [node name="InvaderSpawner" parent="." instance=ExtResource("1_gqwgy")]
 position = Vector2(-1, -199)
@@ -58,12 +57,12 @@ position = Vector2(-41.75, -4)
 shape = SubResource("RectangleShape2D_ulp7o")
 
 [node name="LifeManager" type="Node" parent="."]
-script = ExtResource("7_xd2rw")
+script = ExtResource("4_jgys5")
 
 [node name="PointsCounter" type="Node" parent="."]
-script = ExtResource("5_2jk7h")
+script = ExtResource("5_eg3ka")
 
-[node name="UI" parent="." instance=ExtResource("6_r7e3t")]
+[node name="UI" parent="." instance=ExtResource("6_fyc0m")]
 
 [connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawner" method="_on_left_wall_area_entered"]
 [connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]

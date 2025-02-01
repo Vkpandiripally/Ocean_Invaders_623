@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwil7v5cr0s4v"]
+[gd_scene load_steps=4 format=3 uid="uid://b8ncqesi8smyt"]
 
 [ext_resource type="Script" path="res://Scenes/ui.gd" id="1_foqhd"]
 [ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="2_5bfbe"]
@@ -36,12 +36,14 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [node name="GameOverContainer" type="CenterContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 
 [node name="GameOverBox" type="VBoxContainer" parent="MarginContainer/GameOverContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/GameOverContainer/GameOverBox"]
+[node name="GameOverLabel" type="Label" parent="MarginContainer/GameOverContainer/GameOverBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.976471, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_5bfbe")
@@ -50,7 +52,8 @@ text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/GameOverContainer/GameOverBox"]
+[node name="GameOverButton" type="Button" parent="MarginContainer/GameOverContainer/GameOverBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_q42ge")
 text = "RESTART"
