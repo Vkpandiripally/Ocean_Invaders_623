@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcfassxuvyuau"]
+[gd_scene load_steps=4 format=3 uid="uid://b8mhu1gpc2knp"]
 
 [ext_resource type="Script" path="res://Scenes/friendly.gd" id="1_4iwmk"]
 [ext_resource type="Texture2D" uid="uid://i7mbj3hatiov" path="res://Assets/Invaders/test_invaders.png" id="2_k82nx"]

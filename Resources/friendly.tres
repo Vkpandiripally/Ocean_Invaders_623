@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InvaderResource" load_steps=3 format=3 uid="uid://bjjk2ostvxvv3"]
+[gd_resource type="Resource" script_class="InvaderResource" load_steps=3 format=3 uid="uid://bfsrltt7kbcse"]
 
 [ext_resource type="Script" path="res://Scripts/invader_config.gd" id="1_sir3d"]
 [ext_resource type="Texture2D" uid="uid://i7mbj3hatiov" path="res://Assets/Invaders/test_invaders.png" id="2_odyrg"]
