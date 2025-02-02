@@ -2,7 +2,7 @@ extends Node
 
 class_name LifeManager
 
-signal lifes_lost(lifes_left: int)
+signal life_lost(lifes_left: int)
 
 @export var lifes = 3
 @onready var player: Player = $"../Player"
@@ -13,7 +13,7 @@ func _ready():
 	
 func on_player_destroyed():
 	lifes -=1
-	lifes_lost.emit(lifes)
+	life_lost.emit(lifes)
 	if lifes != 0:
 		player = player_scene.instantiate() as Player
 		player.global_position = Vector2(0, 302)

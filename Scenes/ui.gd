@@ -18,7 +18,7 @@ func _ready():
 	invader_spawner.game_lost.connect(on_game_lost)
 	invader_spawner.game_won.connect(on_game_won)
 	game_over_button.pressed.connect(on_restart_button_pressed)
-	life_manager.lifes_lost.connect(on_lifes_lost)
+	life_manager.life_lost.connect(on_lifes_lost)
 	
 	for i in range(life_manager.lifes):
 		var life_texture_rect = TextureRect.new()
@@ -43,7 +43,7 @@ func on_restart_button_pressed():
 	get_tree().reload_current_scene()
 
 func on_lifes_lost(lifes_left: int):
-	if lifes_left !=0:
+	if lifes_left != 0:
 		var life_texture_rect = lifes_ui_container.get_child(lifes_left)
 		life_texture_rect.queue_free()
 	else:

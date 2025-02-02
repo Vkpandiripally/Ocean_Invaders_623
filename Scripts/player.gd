@@ -39,8 +39,8 @@ func _process(delta: float) -> void:
 		 
 		return
 	position.x += delta_movement
-	
-func on_player_destroyed():
+
+func on_player_destroyed():		
 	if lives == 3:
 		animation_player.play("2_lives")
 		print("3 lives left")
@@ -67,3 +67,4 @@ func _on_animation_player_animation_finished(anim_name):
 		await get_tree().create_timer(1).timeout
 		player_destroyed.emit()
 		queue_free()
+	
