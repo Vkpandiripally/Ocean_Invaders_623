@@ -19,6 +19,7 @@ const INVADERS_POSITION_Y_INCREMENT=20
 var movement_direction = 1
 var invader_scene = preload("res://Scenes/invader.tscn")
 var invader_shot_scene = preload("res://Scenes/invader_shot.tscn")
+var friendly_scene = preload("res://Scenes/friendly.tscn")
 
 var invader_destroyed_count = 0
 var invader_total_count = ROWS * COLUMNS
@@ -36,9 +37,15 @@ func _ready() -> void:
 	var invader1_res = preload("res://Resources/invader1.tres")
 	var invader2_res = preload("res://Resources/invader2.tres")
 	var invader3_res = preload("res://Resources/invader3.tres")
+	var friendly_res = preload("res://Resources/friendly.tres")
 	
+	var friendly_row = randi() % ROWS
+	var friendly_col = randi() % COLUMNS
 	
 	var invader_config
+	var friendly_config
+	
+	friendly_config = friendly_res
 	for row in ROWS:
 		if row == 0:
 			invader_config = invader1_res
@@ -55,7 +62,12 @@ func _ready() -> void:
 			var x = (start_x + (col * invader_config.width*3) + (col * HORIZONTAL_SPACING))-200 
 			var y = START_Y_POSITION + (row * INVADER_HEIGHT) + (row * VERTICAL_SPACING)
 			var spawn_start = Vector2(x,y)
-			spawn_invader(invader_config,spawn_start)
+			
+			# spawn friendly
+			if row == friendly_row and col == friendly_col:
+				spawn_friendly(friendly_config,spawn_start)
+			else:
+				spawn_invader(invader_config,spawn_start)
 			
 func spawn_invader(invader_config, spawn_position: Vector2):
 	var invader = invader_scene.instantiate() as Invader
@@ -63,11 +75,16 @@ func spawn_invader(invader_config, spawn_position: Vector2):
 	invader.global_position = spawn_position
 	invader.invader_destroyed.connect(on_invader_destroyed)
 	add_child(invader)
+
+func spawn_friendly(friendly_config, spawn_position: Vector2):
+	var friendly = friendly_scene.instantiate() as Friendly
+	friendly.config = friendly_config
+	friendly.global_position = spawn_position
+	add_child(friendly)
 	
 func move_invaders():
 	position.x += INVADERS_POSITION_X_INCREMENT * movement_direction
 	
-
 #idk what i did differently but now it works. 1/30/25 4:20pm
 
 func _on_left_wall_area_entered(area: Area2D) -> void:

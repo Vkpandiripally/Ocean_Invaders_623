@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendlyResource" load_steps=3 format=3 uid="uid://buhklxwmxin0k"]
+
+[ext_resource type="Script" path="res://Scripts/friendly_config.gd" id="1_3ce32"]
+[ext_resource type="Texture2D" uid="uid://dp4r3wtig7clx" path="res://Assets/Invaders/friendly-1.png" id="2_bvqtc"]
+
+[resource]
+script = ExtResource("1_3ce32")
+sprite = ExtResource("2_bvqtc")
+width = 8
