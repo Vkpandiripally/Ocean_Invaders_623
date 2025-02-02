@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8ncqesi8smyt"]
+[gd_scene load_steps=4 format=3 uid="uid://cwil7v5cr0s4v"]
 
 [ext_resource type="Script" path="res://Scenes/ui.gd" id="1_foqhd"]
 [ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="2_5bfbe"]
