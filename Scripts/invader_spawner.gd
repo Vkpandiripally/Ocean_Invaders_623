@@ -19,6 +19,7 @@ const INVADERS_POSITION_Y_INCREMENT=20
 var movement_direction = 1
 var invader_scene = preload("res://Scenes/invader.tscn")
 var invader_shot_scene = preload("res://Scenes/invader_shot.tscn")
+var friendly_scene = preload("res://Scenes/friendly.tscn")
 
 var invader_destroyed_count = 0
 var invader_total_count = ROWS * COLUMNS
@@ -36,6 +37,7 @@ func _ready() -> void:
 	var invader1_res = preload("res://Resources/invader1.tres")
 	var invader2_res = preload("res://Resources/invader2.tres")
 	var invader3_res = preload("res://Resources/invader3.tres")
+	var friendly_res = preload("res://Resources/friendly.tres")
 	
 	
 	var invader_config
@@ -67,8 +69,11 @@ func spawn_invader(invader_config, spawn_position: Vector2):
 func move_invaders():
 	position.x += INVADERS_POSITION_X_INCREMENT * movement_direction
 	
-
-#idk what i did differently but now it works. 1/30/25 4:20pm
+func spawn_friendly(friendly_config, spawn_position: Vector2):
+	var friendly = friendly_scene.instantiate() as Friendly
+	friendly.config = friendly_config
+	friendly.global_position = spawn_position
+	add_child(friendly)
 
 func _on_left_wall_area_entered(area: Area2D) -> void:
 	if (movement_direction == -1):
