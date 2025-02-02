@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://rx3p8sys45rt"]
+
+[ext_resource type="Script" path="res://Scripts/narration.gd" id="1_l40ak"]
+[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="2_4fn4o"]
+
+[sub_resource type="Theme" id="Theme_vid7m"]
+default_font = ExtResource("2_4fn4o")
+
+[node name="Narration" type="CanvasLayer"]
+script = ExtResource("1_l40ak")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="NarrationText" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 75
+text = "*NARRATION PLACE HOLDER TEXT*"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = SubResource("Theme_vid7m")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 25
+text = "Press to Start
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

@@ -19,7 +19,7 @@ func _ready():
 		(control as Control).visible = false	
 
 func load_game():
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/narration.tscn")
 
 
 func show_next_control():
