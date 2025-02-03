@@ -27,9 +27,13 @@ var invader_total_count = ROWS * COLUMNS
 #NODE REFERENCES
 @onready var movement_timer = $MovementTimer
 @onready var shot_timer = $ShotTimer
+#@onready var life_manager = $"../LifeManager"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#stop invaders after death
+	#life_manager.game_lost.connect(on_game_lost)
+	
 	#set up timers
 	movement_timer.timeout.connect(move_invaders)
 	shot_timer.timeout.connect(on_invader_shot)
@@ -41,6 +45,13 @@ func _ready() -> void:
 	
 	
 	var invader_config
+	var friendly_config
+	
+	friendly_config = friendly_res
+	
+	var friendly_row = randi() % ROWS
+	var friendly_col = randi() % COLUMNS
+	
 	for row in ROWS:
 		if row == 0:
 			invader_config = invader1_res
@@ -57,7 +68,13 @@ func _ready() -> void:
 			var x = (start_x + (col * invader_config.width*3) + (col * HORIZONTAL_SPACING))-200 
 			var y = START_Y_POSITION + (row * INVADER_HEIGHT) + (row * VERTICAL_SPACING)
 			var spawn_start = Vector2(x,y)
-			spawn_invader(invader_config,spawn_start)
+			#spawn_invader(invader_config,spawn_start)
+		
+			# spawn friendly or invader
+			if row == friendly_row and col == friendly_col:
+				spawn_friendly(friendly_config, spawn_start)
+			else:
+				spawn_invader(invader_config, spawn_start)
 			
 func spawn_invader(invader_config, spawn_position: Vector2):
 	var invader = invader_scene.instantiate() as Invader
@@ -80,7 +97,6 @@ func _on_left_wall_area_entered(area: Area2D) -> void:
 		position.y += INVADERS_POSITION_Y_INCREMENT
 		movement_direction *= -1
 
-
 func _on_right_wall_area_entered(area: Area2D) -> void:
 	if (movement_direction == 1):
 		position.y += INVADERS_POSITION_Y_INCREMENT
@@ -100,8 +116,14 @@ func on_invader_destroyed(points: int):
 		game_won.emit()
 		shot_timer.stop()
 		movement_timer.stop()
+
+#func on_friendly_captured(points: int):
 		
 func _on_bottom_wall_area_entered(area):
 	game_lost.emit()
+	movement_timer.stop()
+	movement_direction = 0
+
+func on_game_lost():
 	movement_timer.stop()
 	movement_direction = 0
