@@ -3,14 +3,14 @@ class_name Player
 
 signal player_destroyed 
 
-var lives = 3
+#var lives = 3
 var speed = 200
 var direction = Vector2.ZERO
 @onready var collision_rect: CollisionShape2D = $CollisionShape2D
 @onready var animation_player = $AnimationPlayer
 var start_bound
 var end_bound
-@export var lives = 3
+@export var lives = 2
 var bounding_x
 
 
@@ -44,22 +44,22 @@ func _process(delta: float) -> void:
 	position.x += delta_movement
 	
 func on_player_destroyed():
-	if lives == 3:
-		animation_player.play("3_lives")
+	if lives == 2:
+		animation_player.play("2_lives")
 		print("2 lives left")
 		lives -= 1
-	elif lives == 2:
-		animation_player.play("2_lives")
+	elif lives == 1:
+		animation_player.play("1_life")
 		print("1 life left")
 		lives -= 1
-	elif lives ==1:
-		animation_player.play("1_life")
-		print("last life")
-		lives -= 1 
-	elif lives == 0:
-		animation_player.play("dead")
-		print("dead")
+	elif lives ==0:
+		animation_player.play("player_destroy")
 		speed = 0
+		lives -= 1 
+	#elif lives == 0:
+	#	animation_player.play("dead")
+	#	print("dead")
+	#	speed = 0
 	else:
 		print(lives)
 	#speed = 0
