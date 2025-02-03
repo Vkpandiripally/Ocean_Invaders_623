@@ -1,5 +1,9 @@
 extends Area2D
 class_name Player
+
+signal player_destroyed 
+
+var lives = 3
 var speed = 200
 var direction = Vector2.ZERO
 @onready var collision_rect: CollisionShape2D = $CollisionShape2D
@@ -58,5 +62,12 @@ func on_player_destroyed():
 		speed = 0
 	else:
 		print(lives)
+	#speed = 0
 	#animation_player.play("player_destroy")
 				
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "destroy":
+		await get_tree().create_timer(1).timeout
+		player_destroyed.emit()
+		queue_free()
+	
