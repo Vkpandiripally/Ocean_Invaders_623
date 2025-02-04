@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://l84t8jmtowc5"]
+[gd_scene load_steps=10 format=3 uid="uid://l84t8jmtowc5"]
 
 [ext_resource type="PackedScene" uid="uid://fupd1v1pxa3a" path="res://Scenes/player.tscn" id="1_11fx2"]
 [ext_resource type="PackedScene" uid="uid://bya8ci6vmax2" path="res://Scenes/invader_spawner.tscn" id="1_gqwgy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/life_manager.gd" id="4_jgys5"]
 [ext_resource type="PackedScene" uid="uid://jraisv2tpnhg" path="res://Scenes/ui.tscn" id="6_0cjiu"]
 [ext_resource type="Script" path="res://Scenes/points_counter.gd" id="6_w0ee5"]
+[ext_resource type="Texture2D" uid="uid://dwjkdb7ddkr6o" path="res://Assets/Backgrounds/bg1.png" id="7_5jj74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s003n"]
 size = Vector2(22, 716)
@@ -63,6 +64,10 @@ script = ExtResource("4_jgys5")
 script = ExtResource("6_w0ee5")
 
 [node name="UI" parent="." instance=ExtResource("6_0cjiu")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -15
+texture = ExtResource("7_5jj74")
 
 [connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawner" method="_on_left_wall_area_entered"]
 [connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]

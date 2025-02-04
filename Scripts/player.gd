@@ -1,7 +1,8 @@
 extends Area2D
 class_name Player
 
-signal player_destroyed 
+signal player_destroyed
+signal player_unfrozen
 
 var lives = 2
 var speed = 200
@@ -10,6 +11,7 @@ var direction = Vector2.ZERO
 @onready var animation_player = $AnimationPlayer
 var start_bound
 var end_bound
+var can_move = true
 
 var bounding_x
 # Called when the node enters the scene tree for the first time.
@@ -36,7 +38,8 @@ func _process(delta: float) -> void:
 	
 #making sure we dont go out of bounds
 	if (position.x + delta_movement < start_bound + bounding_x * transform.get_scale().x || position.x + delta_movement > end_bound - bounding_x * transform.get_scale().x):
-		 
+		return
+	if (not can_move):
 		return
 	position.x += delta_movement
 
@@ -71,4 +74,17 @@ func _on_animation_player_animation_finished(anim_name):
 		await get_tree().create_timer(1).timeout
 		player_destroyed.emit()
 		queue_free()
-	
+		
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is CaughtNet:
+		area.queue_free()
+		emit_signal("player_unfrozen")
+
+
+func _on_shot_origin_player_frozen() -> void:
+	can_move = false
+
+
+func _on_player_unfrozen() -> void:
+	can_move = true

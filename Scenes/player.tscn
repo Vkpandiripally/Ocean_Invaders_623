@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://fupd1v1pxa3a"]
+[gd_scene load_steps=16 format=3 uid="uid://fupd1v1pxa3a"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gt454"]
 [ext_resource type="Texture2D" uid="uid://dt0af4o7yh41a" path="res://Assets/Player/Player.png" id="2_11s6y"]
 [ext_resource type="Script" path="res://Scripts/shot_origin.gd" id="3_2uoqw"]
 [ext_resource type="PackedScene" uid="uid://wyy01l5ykmu2" path="res://Scenes/laser.tscn" id="4_mdyvr"]
+[ext_resource type="PackedScene" uid="uid://bdgap12mrcbmo" path="res://Scenes/net.tscn" id="5_dm8jl"]
 [ext_resource type="Texture2D" uid="uid://bi2vdab3slwgf" path="res://Assets/Player/Player-explosion1.png" id="5_svn4r"]
 [ext_resource type="Texture2D" uid="uid://b4mk25ro2nqtu" path="res://Assets/Player/Player-explosion2.png" id="6_2m5vu"]
 [ext_resource type="Texture2D" uid="uid://dsg2krqtkgnca" path="res://Assets/Player/Player-explosion3.png" id="7_4ifek"]
@@ -101,6 +102,8 @@ _data = {
 
 [node name="Player" type="Area2D"]
 scale = Vector2(4, 4)
+collision_layer = 65
+collision_mask = 65
 script = ExtResource("1_gt454")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -115,10 +118,16 @@ shape = SubResource("RectangleShape2D_5tbny")
 position = Vector2(0, -4)
 script = ExtResource("3_2uoqw")
 laser_scene = ExtResource("4_mdyvr")
+net_scene = ExtResource("5_dm8jl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_yeknq")
 }
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="player_unfrozen" from="." to="." method="_on_player_unfrozen"]
+[connection signal="player_unfrozen" from="." to="ShotOrigin" method="_on_player_player_unfrozen"]
+[connection signal="player_frozen" from="ShotOrigin" to="." method="_on_shot_origin_player_frozen"]
+[connection signal="player_frozen" from="ShotOrigin" to="ShotOrigin" method="_on_player_frozen"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
