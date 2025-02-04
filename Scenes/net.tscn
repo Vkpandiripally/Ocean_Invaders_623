@@ -10,6 +10,7 @@ size = Vector2(59, 12)
 
 [node name="Net" type="Area2D"]
 collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_rpwlk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

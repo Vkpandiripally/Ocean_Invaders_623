@@ -3,6 +3,7 @@ extends Node2D
 class_name InvaderSpawner
 
 signal invader_destroyed(points: int)
+signal friendly_destroyed(is_net: bool)
 signal game_won
 signal game_lost
 
@@ -90,6 +91,7 @@ func spawn_friendly(friendly_config, spawn_position: Vector2):
 	var friendly = friendly_scene.instantiate() as Friendly
 	friendly.config = friendly_config
 	friendly.global_position = spawn_position
+	friendly.friendly_destroyed.connect(on_friendly_destroyed)
 	add_child(friendly)
 
 func _on_left_wall_area_entered(area: Area2D) -> void:
@@ -117,7 +119,8 @@ func on_invader_destroyed(points: int):
 		shot_timer.stop()
 		movement_timer.stop()
 
-#func on_friendly_captured(points: int):
+func on_friendly_destroyed(is_net: bool):
+	friendly_destroyed.emit(is_net)
 		
 func _on_bottom_wall_area_entered(area):
 	game_lost.emit()

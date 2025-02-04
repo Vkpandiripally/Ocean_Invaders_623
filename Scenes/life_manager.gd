@@ -14,9 +14,8 @@ func _ready():
 	(player as Player).player_destroyed.connect(on_player_destroyed)
 	
 func on_player_destroyed():
-	print("Player destroyed")
 	lifes -=1
-	print("Player destroyed! Remaining lifes:", lifes)  # Debug check
+	print("Player destroyed! Remaining lives:", lifes)  # Debug check
 	life_lost.emit(lifes)
 	#if lifes != 0:
 		#player = player_scene.instantiate() as Player
