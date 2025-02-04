@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8mhu1gpc2knp"]
 
 [ext_resource type="Script" path="res://Scenes/friendly.gd" id="1_4iwmk"]
-[ext_resource type="Texture2D" uid="uid://i7mbj3hatiov" path="res://Assets/Invaders/test_invaders.png" id="2_k82nx"]
+[ext_resource type="Texture2D" uid="uid://2vqgbbrxo6ei" path="res://Assets/Invaders/friendly-1.png" id="2_qg7ii"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kirgs"]
 radius = 19.9249
@@ -10,8 +10,8 @@ radius = 19.9249
 script = ExtResource("1_4iwmk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_k82nx")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_qg7ii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kirgs")

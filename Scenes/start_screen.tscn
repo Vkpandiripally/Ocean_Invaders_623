@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4d3m1mqpvadr"]
+[gd_scene load_steps=7 format=3 uid="uid://b4d3m1mqpvadr"]
 
 [ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_101l1"]
+[ext_resource type="Texture2D" uid="uid://cww0xhhc4dg0f" path="res://Assets/Backgrounds/background fina;.png" id="2_f1dkc"]
 [ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="2_nlfpm"]
 [ext_resource type="Texture2D" uid="uid://i7mbj3hatiov" path="res://Assets/Invaders/test_invaders.png" id="3_3rpif"]
 [ext_resource type="Texture2D" uid="uid://bn227mp3yqjlo" path="res://Assets/Invaders/Invader2-1.png" id="3_haxs7"]
-[ext_resource type="Texture2D" uid="uid://dy2h5dklc8h7p" path="res://Assets/Invaders/Invader1-1.png" id="4_a3vfq"]
+[ext_resource type="Texture2D" uid="uid://citgff66xvg80" path="res://Assets/Invaders/test_invader_2.png" id="5_242cn"]
 
 [node name="start_screen" type="CanvasLayer"]
 script = ExtResource("1_101l1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_f1dkc")
+expand_mode = 2
+stretch_mode = 3
 
 [node name="MeshInstance2D" type="Sprite2D" parent="."]
 visible = false
@@ -64,7 +72,8 @@ unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("3_3rpif")
+texture = ExtResource("5_242cn")
+expand_mode = 1
 
 [node name="Invader1Label" type="Label" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer/Invasive_container1"]
 unique_name_in_owner = true
@@ -105,11 +114,12 @@ size_flags_horizontal = 4
 [node name="Invader3Texture" type="TextureRect" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer/Invasive_container3"]
 unique_name_in_owner = true
 texture_filter = 1
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("4_a3vfq")
+texture = ExtResource("3_3rpif")
+expand_mode = 1
 
 [node name="Invader3Label" type="Label" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer/Invasive_container3"]
 unique_name_in_owner = true

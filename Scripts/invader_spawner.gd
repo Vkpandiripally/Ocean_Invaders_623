@@ -24,6 +24,9 @@ var friendly_scene = preload("res://Scenes/friendly.tscn")
 var invader_destroyed_count = 0
 var invader_total_count = ROWS * COLUMNS
 
+var wave_count = 0
+var MAX_WAVES = 3
+
 #NODE REFERENCES
 @onready var movement_timer = $MovementTimer
 @onready var shot_timer = $ShotTimer
@@ -42,7 +45,6 @@ func _ready() -> void:
 	var invader2_res = preload("res://Resources/invader2.tres")
 	var invader3_res = preload("res://Resources/invader3.tres")
 	var friendly_res = preload("res://Resources/friendly.tres")
-	
 	
 	var invader_config
 	var friendly_config
@@ -127,3 +129,5 @@ func _on_bottom_wall_area_entered(area):
 func on_game_lost():
 	movement_timer.stop()
 	movement_direction = 0
+
+		
