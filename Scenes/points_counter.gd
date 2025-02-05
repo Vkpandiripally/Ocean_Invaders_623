@@ -3,6 +3,7 @@ extends Node
 class_name PointsCounter
 
 signal on_points_increased(points: int)
+signal friendly_destroyed
 
 var points = 0
 

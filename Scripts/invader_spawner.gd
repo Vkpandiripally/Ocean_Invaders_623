@@ -121,6 +121,12 @@ func on_invader_destroyed(points: int):
 
 func on_friendly_destroyed(is_net: bool):
 	friendly_destroyed.emit(is_net)
+	if !is_net:
+		var life_manager = get_node("../LifeManager") as LifeManager
+		if life_manager:
+			life_manager.on_player_destroyed()
+		else:
+			print("Life manager not called")
 		
 func _on_bottom_wall_area_entered(area):
 	game_lost.emit()
