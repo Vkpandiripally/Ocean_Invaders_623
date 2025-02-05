@@ -14,9 +14,8 @@ const HORIZONTAL_SPACING=45
 const VERTICAL_SPACING=32
 const INVADER_HEIGHT=24
 const START_Y_POSITION=-100
-const INVADERS_POSITION_X_INCREMENT=18
+var INVADERS_POSITION_X_INCREMENT=18
 const INVADERS_POSITION_Y_INCREMENT=20
-const MAX_WAVES = 3
 
 var movement_direction = 1
 var invader_scene = preload("res://Scenes/invader.tscn")
@@ -24,9 +23,10 @@ var invader_shot_scene = preload("res://Scenes/invader_shot.tscn")
 var friendly_scene = preload("res://Scenes/friendly.tscn")
 
 var invader_destroyed_count = 0
-var invader_total_count = ROWS * COLUMNS
+var invader_total_count = ROWS * COLUMNS - 1
 
 var wave_count = 0
+@export var MAX_WAVES = 3
 
 #NODE REFERENCES
 @onready var movement_timer = $MovementTimer
@@ -36,58 +36,20 @@ var wave_count = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#stop invaders after death
-	#life_manager.game_lost.connect(on_game_lost)
 	start_new_wave()
-	
-	#set up timers
-	#movement_timer.timeout.connect(move_invaders)
-	#shot_timer.timeout.connect(on_invader_shot)
-	#
-	#var invader1_res = preload("res://Resources/invader1.tres")
-	#var invader2_res = preload("res://Resources/invader2.tres")
-	#var invader3_res = preload("res://Resources/invader3.tres")
-	#var friendly_res = preload("res://Resources/friendly.tres")
-	#
-	#
-	#var invader_config
-	#var friendly_config
-	#
-	#friendly_config = friendly_res
-	#
-	#var friendly_row = randi() % ROWS
-	#var friendly_col = randi() % COLUMNS
-	#
-	#for row in ROWS:
-		#if row == 0:
-			#invader_config = invader1_res
-		#elif row == 1 || row == 2:
-			#invader_config = invader2_res
-		#elif row == 3 || row == 4:
-			#invader_config = invader3_res
-			#
-		#var row_width = (COLUMNS + invader_config.width*3) + ((COLUMNS-1) * HORIZONTAL_SPACING)
-		#var start_x = (position.x - row_width) / 2
-		##var start_x = -535 #idk this isnt right. Need a better way to center the spawn point
-		#
-		#for col in COLUMNS:
-			#var x = (start_x + (col * invader_config.width*3) + (col * HORIZONTAL_SPACING))-200 
-			#var y = START_Y_POSITION + (row * INVADER_HEIGHT) + (row * VERTICAL_SPACING)
-			#var spawn_start = Vector2(x,y)
-			##spawn_invader(invader_config,spawn_start)
-		#
-			## spawn friendly or invader
-			#if row == friendly_row and col == friendly_col:
-				#spawn_friendly(friendly_config, spawn_start)
-			#else:
-				#spawn_invader(invader_config, spawn_start)
-
-func start_new_wave():
-	if wave_count < MAX_WAVES:
-		wave_count += 1
-		invader_destroyed_count = 0
-		spawn_wave()
 
 func spawn_wave():
+	print("Spawning new wave")
+	for invader in get_children():
+		if invader is Invader:
+			invader.queue_free()
+	
+	#clear remaining 
+	for child in get_children():
+		if child is Invader or child is Friendly:
+			child.queue_free()
+	
+	
 	movement_timer.timeout.connect(move_invaders)
 	shot_timer.timeout.connect(on_invader_shot)
 	
@@ -166,10 +128,13 @@ func on_invader_shot():
 		get_tree().root.add_child(invader_shot)
 	
 func on_invader_destroyed(points: int):
+	print("Total invaders: ", invader_total_count)
 	invader_destroyed.emit(points)
 	invader_destroyed_count += 1
+	print("Invader destroyed. Count: ", invader_destroyed_count)
 	if invader_destroyed_count == invader_total_count:
-		if wave_count < MAX_WAVES:
+		if wave_count < MAX_WAVES - 1:
+			print("Starting new wave")
 			start_new_wave()
 		else:
 			game_won.emit()
@@ -184,6 +149,19 @@ func on_friendly_destroyed(is_net: bool):
 			life_manager.on_player_destroyed()
 		else:
 			print("Life manager not called")
+			
+func start_new_wave():
+	if wave_count < MAX_WAVES:
+		wave_count += 1
+		invader_destroyed_count = 0
+		print("Starting Wave", wave_count)
+		INVADERS_POSITION_X_INCREMENT += 5
+		$"../Player".speed += 10
+		spawn_wave()
+	else:
+		game_won.emit()
+		shot_timer.stop()
+		movement_timer.stop()
 		
 func _on_bottom_wall_area_entered(area):
 	game_lost.emit()

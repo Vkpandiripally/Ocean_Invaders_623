@@ -44,11 +44,6 @@ func _process(delta: float) -> void:
 	position.x += delta_movement
 
 func on_player_destroyed():		
-	#if lives == 3:
-		#animation_player.play("2_lives")
-		#print("3 lives left")
-		#player_destroyed.emit()
-		#lives -= 1
 	if lives == 2:
 		animation_player.play("2_lives")
 		print("2 lives left")
