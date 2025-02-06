@@ -1,8 +1,9 @@
 extends Node2D
-#script for shooting
+
 @export var laser_scene: PackedScene
 @export var net_scene: PackedScene
 @export var can_move: int
+
 var can_player_shoot = true
 var can_shoot_net = true
 var frozen = false

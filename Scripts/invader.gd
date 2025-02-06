@@ -17,8 +17,9 @@ func _ready() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Laser:
-		animation_player.play("destroy")
 		area.queue_free()
+		queue_free()
+		invader_destroyed.emit(config.points)
 	if area is Net:
 		var caught_net = net_scene.instantiate() as CaughtNet
 		caught_net.position = area.position - Vector2(0,20)
@@ -27,8 +28,3 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 		queue_free()
 		invader_destroyed.emit(-1 * config.points)
-	
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "destroy":
-		queue_free()
-		invader_destroyed.emit(config.points)

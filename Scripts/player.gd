@@ -36,32 +36,12 @@ func _process(delta: float) -> void:
 	
 	var delta_movement = speed*delta*direction.x
 	
-#making sure we dont go out of bounds
+	#making sure we dont go out of bounds
 	if (position.x + delta_movement < start_bound + bounding_x * transform.get_scale().x || position.x + delta_movement > end_bound - bounding_x * transform.get_scale().x):
 		return
 	if (not can_move):
 		return
 	position.x += delta_movement
-
-func on_player_destroyed():		
-	if lives == 2:
-		animation_player.play("2_lives")
-		print("2 lives left")
-		player_destroyed.emit()
-		lives -= 1
-	elif lives ==1:
-		animation_player.play("1_life")
-		print("1 lives left")
-		player_destroyed.emit()
-		lives -= 1 
-	elif lives == 0:
-		animation_player.play("dead")
-		print("dead")
-		player_destroyed.emit()
-		speed = 0
-	
-	else:
-		print(lives)
 				
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "destroy":

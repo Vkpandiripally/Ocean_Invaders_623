@@ -7,21 +7,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kirgs"]
 radius = 19.9249
 
-[sub_resource type="Animation" id="Animation_0uoc7"]
-resource_name = "friendly_move"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_1bn2v")]
-}
-
 [sub_resource type="Animation" id="Animation_2vwyg"]
 length = 0.001
 tracks/0/type = "value"
@@ -32,6 +17,21 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_1bn2v")]
+}
+
+[sub_resource type="Animation" id="Animation_0uoc7"]
+resource_name = "friendly_move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("3_1bn2v")]
@@ -50,10 +50,11 @@ script = ExtResource("1_4iwmk")
 net_scene = ExtResource("2_rsm43")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_1bn2v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_kirgs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

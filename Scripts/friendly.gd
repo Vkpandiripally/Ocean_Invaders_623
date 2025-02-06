@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is Laser:
 		area.queue_free()
-		friendly_destroyed.emit(false)
 		queue_free()
+		friendly_destroyed.emit(false)
 		
 	if area is Net:
 		var caught_net = net_scene.instantiate() as CaughtNet

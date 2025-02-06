@@ -10,8 +10,8 @@ signal game_lost
 # Normal game config: ROWS=5, COLS=8
 const ROWS=5
 const COLUMNS=8
-const HORIZONTAL_SPACING=45
-const VERTICAL_SPACING=32
+const HORIZONTAL_SPACING=50
+const VERTICAL_SPACING=45
 const INVADER_HEIGHT=24
 const START_Y_POSITION=-100
 var INVADERS_POSITION_X_INCREMENT=2
@@ -129,12 +129,13 @@ func on_invader_destroyed(points: int):
 	invader_destroyed_count += 1
 	print("Invader destroyed. Count: ", invader_destroyed_count)
 	var life_manager = get_node("../LifeManager") as LifeManager
-	if invader_destroyed_count == invader_total_count && life_manager.lifes > 0:
+	if invader_destroyed_count == invader_total_count && life_manager.lives > 0:
 		start_new_wave()
 
 func on_friendly_destroyed(is_net: bool):
-	#friendly_destroyed.emit(is_net)
+	friendly_destroyed.emit(is_net)
 	var life_manager = get_node("../LifeManager") as LifeManager
+	var player = get_node("../Player") as Player
 	if !is_net:
 		if life_manager:
 			life_manager.on_player_destroyed()
@@ -142,7 +143,7 @@ func on_friendly_destroyed(is_net: bool):
 			print("Life manager not called")
 	invader_destroyed_count += 1
 	print(invader_destroyed_count)
-	if invader_destroyed_count == invader_total_count && life_manager.lifes > 0:
+	if invader_destroyed_count == invader_total_count && life_manager.lives > 0:
 		start_new_wave()
 			
 func start_new_wave():
@@ -157,7 +158,7 @@ func start_new_wave():
 	# Reset spawner position to its original location
 	position = Vector2(0, -200)  # Adjust this if your starting position is different
 		
-	$"../Player".speed += 10 # increase player speed
+	$"../Player".speed += 5 # increase player speed
 		
 	spawn_wave()
 		

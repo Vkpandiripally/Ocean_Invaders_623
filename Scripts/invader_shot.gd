@@ -11,7 +11,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Player:
-		(area as Player).on_player_destroyed()
+		var life_manager = get_node("../main/LifeManager") as LifeManager
+		life_manager.on_player_destroyed()
 		queue_free()
 		
 func _ready():

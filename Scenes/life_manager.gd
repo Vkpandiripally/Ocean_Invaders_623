@@ -3,9 +3,8 @@ extends Node
 class_name LifeManager
 
 signal life_lost(lifes_left: int)
-#signal game_lost
 
-@export var lifes = 3
+@export var lives = 3
 @onready var player: Player = $"../Player"
 var player_scene = preload("res://Scenes/player.tscn")
 
@@ -14,11 +13,12 @@ func _ready():
 	(player as Player).player_destroyed.connect(on_player_destroyed)
 	
 func on_player_destroyed():
-	lifes -=1
-	print("Player destroyed! Remaining lives:", lifes)  # Debug check
-	life_lost.emit(lifes)
-	#if lifes != 0:
-		#player = player_scene.instantiate() as Player
-		#player.global_position = Vector2(0, 302)
-		#player.player_destroyed.connect(on_player_destroyed)
-		#get_tree().root.get_node("main").add_child(player)
+	lives -= 1
+	print("Player destroyed! Remaining lives:", lives)  # Debug check
+	life_lost.emit(lives)
+	if lives == 2:
+		player.animation_player.play("2_lives")
+	elif lives ==1:
+		player.animation_player.play("1_life")
+	elif lives == 0:
+		player.animation_player.play("dead")

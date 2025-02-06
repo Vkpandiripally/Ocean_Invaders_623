@@ -15,11 +15,6 @@ func _process(delta: float) -> void:
 
 func on_game_lost():
 	game_over_container.visible = true
-	
-func on_game_won():
-	game_over_label.text = "You won!"
-	game_over_label.add_theme_color_override("font_color", Color.GREEN)
-	game_over_container.visible = true
 
 func on_restart_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
