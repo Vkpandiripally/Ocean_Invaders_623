@@ -7,10 +7,8 @@ signal friendly_destroyed(is_net: bool)
 signal game_won
 signal game_lost
 
-#spawner configs
-#5
+# Normal game config: ROWS=5, COLS=8
 const ROWS=5
-#1
 const COLUMNS=8
 const HORIZONTAL_SPACING=45
 const VERTICAL_SPACING=32
@@ -27,15 +25,11 @@ var friendly_scene = preload("res://Scenes/friendly.tscn")
 var invader_destroyed_count = 0
 var invader_total_count = ROWS * COLUMNS
 
-#var wave_count = 0
-#@export var MAX_WAVES = 3
-
 var spawn_location_global=Vector2()
 
 #NODE REFERENCES
 @onready var movement_timer = $MovementTimer
 @onready var shot_timer = $ShotTimer
-#@onready var life_manager = $"../LifeManager"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,8 +47,7 @@ func spawn_wave():
 	for child in get_children():
 		if child is Invader or child is Friendly:
 			child.queue_free()
-	
-	
+			
 	movement_timer.timeout.connect(move_invaders)
 	shot_timer.timeout.connect(on_invader_shot)
 	
@@ -62,7 +55,6 @@ func spawn_wave():
 	var invader2_res = preload("res://Resources/invader2.tres")
 	var invader3_res = preload("res://Resources/invader3.tres")
 	var friendly_res = preload("res://Resources/friendly.tres")
-	
 	
 	var invader_config
 	var friendly_config
@@ -82,14 +74,12 @@ func spawn_wave():
 			
 		var row_width = (COLUMNS + invader_config.width*3) + ((COLUMNS-1) * HORIZONTAL_SPACING)
 		var start_x = (position.x - row_width) / 2
-		#var start_x = -535 #idk this isnt right. Need a better way to center the spawn point
 		
 		for col in COLUMNS:
 			var x = (start_x + (col * invader_config.width*3) + (col * HORIZONTAL_SPACING))-200 
 			var y = START_Y_POSITION + (row * INVADER_HEIGHT) + (row * VERTICAL_SPACING)
 			var spawn_start = Vector2(x,y)
 			spawn_location_global = Vector2(x,y)
-			#spawn_invader(invader_config,spawn_start)
 		
 			# spawn friendly or invader
 			if row == friendly_row and col == friendly_col:
@@ -140,13 +130,7 @@ func on_invader_destroyed(points: int):
 	print("Invader destroyed. Count: ", invader_destroyed_count)
 	var life_manager = get_node("../LifeManager") as LifeManager
 	if invader_destroyed_count == invader_total_count && life_manager.lifes > 0:
-		#if wave_count < MAX_WAVES - 1:
-		#	print("Starting new wave")
 		start_new_wave()
-	#else:
-	#	game_won.emit()
-	#	shot_timer.stop()
-	#	movement_timer.stop()
 
 func on_friendly_destroyed(is_net: bool):
 	friendly_destroyed.emit(is_net)
@@ -154,17 +138,11 @@ func on_friendly_destroyed(is_net: bool):
 	if !is_net:
 		if life_manager:
 			life_manager.on_player_destroyed()
-			
-			#if life_manager.lifes <= 0:
-			#	print("No lives... ending game")
-				#game_over()
 		else:
 			print("Life manager not called")
 	invader_destroyed_count += 1
 	print(invader_destroyed_count)
 	if invader_destroyed_count == invader_total_count && life_manager.lifes > 0:
-		#if wave_count < MAX_WAVES - 1:
-		#	print("Starting new wave")
 		start_new_wave()
 			
 func start_new_wave():
@@ -174,20 +152,14 @@ func start_new_wave():
 
 	print("current speed is: " + str(INVADERS_POSITION_X_INCREMENT))
 	
-		#wave_count += 1
 	invader_destroyed_count = 0
-		#print("Starting Wave", wave_count)
 		
 	# Reset spawner position to its original location
 	position = Vector2(0, -200)  # Adjust this if your starting position is different
 		
-	$"../Player".speed += 10
+	$"../Player".speed += 10 # increase player speed
 		
 	spawn_wave()
-	#else:
-	#	game_won.emit()
-	#	shot_timer.stop()
-	#	movement_timer.stop()
 		
 func _on_bottom_wall_area_entered(area):
 	game_lost.emit()

@@ -12,10 +12,8 @@ var direction = Vector2.ZERO
 var start_bound
 var end_bound
 var can_move = true
-
-
-
 var bounding_x
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bounding_x = collision_rect.shape.get_rect().size.x
@@ -64,8 +62,6 @@ func on_player_destroyed():
 	
 	else:
 		print(lives)
-	#speed = 0
-	#animation_player.play("player_destroy")
 				
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "destroy":
@@ -73,17 +69,13 @@ func _on_animation_player_animation_finished(anim_name):
 		player_destroyed.emit()
 		queue_free()
 		
-
 func _on_area_entered(area: Area2D) -> void:
 	if area is CaughtNet:
 		area.queue_free()
 		emit_signal("player_unfrozen")
 
-
 func _on_shot_origin_player_frozen() -> void:
 	can_move = false
 
-
 func _on_player_unfrozen() -> void:
 	can_move = true
-	

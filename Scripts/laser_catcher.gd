@@ -9,5 +9,3 @@ func _on_area_entered(area):
 		var root_node = get_tree().root.get_node("main")
 		root_node.call_deferred("add_child", caught_net)
 	area.queue_free()
-	
-	

@@ -3,13 +3,9 @@ extends CanvasLayer
 @onready var game_over_container: CenterContainer = $MarginContainer/GameOverContainer
 @onready var game_over_label: Label = %GameOverLabel
 @onready var game_over_button: Button = %GameOverButton
-#@onready var invader_spawner = $"../InvaderSpawner" as InvaderSpawner
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#invader_spawner.game_lost.connect(on_game_lost)
-	#invader_spawner.game_won.connect(on_game_won)
 	game_over_button.pressed.connect(on_restart_button_pressed)
 
 

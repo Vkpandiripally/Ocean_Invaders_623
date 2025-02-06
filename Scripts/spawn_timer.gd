@@ -9,7 +9,6 @@ class_name SpawnTimer
 func _ready() -> void:
 	setup_timer()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func setup_timer():
 	var random_time = randi_range(min_time, max_timer)
