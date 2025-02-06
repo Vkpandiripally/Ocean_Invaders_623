@@ -5,13 +5,15 @@ signal player_destroyed
 signal player_unfrozen
 
 var lives = 2
-var speed = 200
+var speed = 300
 var direction = Vector2.ZERO
 @onready var collision_rect: CollisionShape2D = $CollisionShape2D
 @onready var animation_player = $AnimationPlayer
 var start_bound
 var end_bound
 var can_move = true
+
+
 
 var bounding_x
 # Called when the node enters the scene tree for the first time.
@@ -59,6 +61,7 @@ func on_player_destroyed():
 		print("dead")
 		player_destroyed.emit()
 		speed = 0
+	
 	else:
 		print(lives)
 	#speed = 0
@@ -83,3 +86,4 @@ func _on_shot_origin_player_frozen() -> void:
 
 func _on_player_unfrozen() -> void:
 	can_move = true
+	

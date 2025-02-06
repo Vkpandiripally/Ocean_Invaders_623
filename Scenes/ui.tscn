@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://jraisv2tpnhg"]
+[gd_scene load_steps=3 format=3 uid="uid://jraisv2tpnhg"]
 
-[ext_resource type="Script" path="res://Scenes/ui.gd" id="1_foqhd"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_foqhd"]
 [ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="2_5bfbe"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q42ge"]
-bg_color = Color(0.892876, 0.288756, 0.927108, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_foqhd")
@@ -34,26 +31,3 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-
-[node name="GameOverContainer" type="CenterContainer" parent="MarginContainer"]
-visible = false
-layout_mode = 2
-
-[node name="GameOverBox" type="VBoxContainer" parent="MarginContainer/GameOverContainer"]
-layout_mode = 2
-
-[node name="GameOverLabel" type="Label" parent="MarginContainer/GameOverContainer/GameOverBox"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.976471, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_5bfbe")
-theme_override_font_sizes/font_size = 60
-text = "GAME OVER"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GameOverButton" type="Button" parent="MarginContainer/GameOverContainer/GameOverBox"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_q42ge")
-text = "RESTART"

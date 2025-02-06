@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://duw7gg6161xho" path="res://Scenes/laser_catcher.tscn" id="2_tjl1t"]
 [ext_resource type="Script" path="res://Scenes/life_manager.gd" id="4_jgys5"]
 [ext_resource type="PackedScene" uid="uid://jraisv2tpnhg" path="res://Scenes/ui.tscn" id="6_0cjiu"]
-[ext_resource type="Script" path="res://Scenes/points_counter.gd" id="6_w0ee5"]
+[ext_resource type="Script" path="res://Scripts/points_counter.gd" id="6_w0ee5"]
 [ext_resource type="Texture2D" uid="uid://dwjkdb7ddkr6o" path="res://Assets/Backgrounds/bg1.png" id="7_5jj74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s003n"]

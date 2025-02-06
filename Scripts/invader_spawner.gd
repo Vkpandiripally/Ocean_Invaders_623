@@ -28,6 +28,8 @@ var invader_total_count = ROWS * COLUMNS - 1
 var wave_count = 0
 @export var MAX_WAVES = 3
 
+var spawn_location_global=Vector2()
+
 #NODE REFERENCES
 @onready var movement_timer = $MovementTimer
 @onready var shot_timer = $ShotTimer
@@ -39,6 +41,7 @@ func _ready() -> void:
 	start_new_wave()
 
 func spawn_wave():
+
 	print("Spawning new wave")
 	for invader in get_children():
 		if invader is Invader:
@@ -83,6 +86,7 @@ func spawn_wave():
 			var x = (start_x + (col * invader_config.width*3) + (col * HORIZONTAL_SPACING))-200 
 			var y = START_Y_POSITION + (row * INVADER_HEIGHT) + (row * VERTICAL_SPACING)
 			var spawn_start = Vector2(x,y)
+			spawn_location_global = Vector2(x,y)
 			#spawn_invader(invader_config,spawn_start)
 		
 			# spawn friendly or invader
@@ -147,6 +151,10 @@ func on_friendly_destroyed(is_net: bool):
 		var life_manager = get_node("../LifeManager") as LifeManager
 		if life_manager:
 			life_manager.on_player_destroyed()
+			
+			if life_manager.lifes <= 0:
+				print("No lives... ending game")
+				game_over()
 		else:
 			print("Life manager not called")
 			
@@ -155,8 +163,13 @@ func start_new_wave():
 		wave_count += 1
 		invader_destroyed_count = 0
 		print("Starting Wave", wave_count)
+		
+		# Reset spawner position to its original location
+		position = Vector2(0, -200)  # Adjust this if your starting position is different
+		
 		INVADERS_POSITION_X_INCREMENT += 5
 		$"../Player".speed += 10
+		
 		spawn_wave()
 	else:
 		game_won.emit()
@@ -171,3 +184,29 @@ func _on_bottom_wall_area_entered(area):
 func on_game_lost():
 	movement_timer.stop()
 	movement_direction = 0
+	
+func game_over():
+	print("Game Over! Transitioning to game over screen.")
+	# Stop all timers to halt enemy movement and shooting
+	movement_timer.stop()
+	shot_timer.stop()
+
+	# Stop enemy movement
+	movement_direction = 0  # Prevent invaders from moving
+	for laser in get_tree().get_nodes_in_group("lasers"):
+		laser.queue_free()
+	for shot in get_tree().get_nodes_in_group("invader_shots"):
+		shot.queue_free()
+	for invader in get_children():
+		if invader is Invader:
+			invader.set_physics_process(false)  # Disable processing
+			invader.set_process(false)  # Disable script execution
+	# Disable player input
+	var player = get_node("../Player")
+	if player:
+		player.set_process(false)  # Disable player script execution
+	# Delay before transitioning (optional, for effect)
+	await get_tree().create_timer(2.0).timeout
+	# Change scene to the game over screen
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+	on_game_lost()
