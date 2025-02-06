@@ -8,14 +8,16 @@ signal game_won
 signal game_lost
 
 #spawner configs
+#5
 const ROWS=5
-const COLUMNS=11
+#1
+const COLUMNS=8
 const HORIZONTAL_SPACING=45
 const VERTICAL_SPACING=32
 const INVADER_HEIGHT=24
 const START_Y_POSITION=-100
-var INVADERS_POSITION_X_INCREMENT=18
-const INVADERS_POSITION_Y_INCREMENT=20
+var INVADERS_POSITION_X_INCREMENT=2
+const INVADERS_POSITION_Y_INCREMENT=15
 
 var movement_direction = 1
 var invader_scene = preload("res://Scenes/invader.tscn")
@@ -23,10 +25,10 @@ var invader_shot_scene = preload("res://Scenes/invader_shot.tscn")
 var friendly_scene = preload("res://Scenes/friendly.tscn")
 
 var invader_destroyed_count = 0
-var invader_total_count = ROWS * COLUMNS - 1
+var invader_total_count = ROWS * COLUMNS
 
-var wave_count = 0
-@export var MAX_WAVES = 3
+#var wave_count = 0
+#@export var MAX_WAVES = 3
 
 var spawn_location_global=Vector2()
 
@@ -104,7 +106,7 @@ func spawn_invader(invader_config, spawn_position: Vector2):
 	add_child(invader)
 	
 func move_invaders():
-	position.x += INVADERS_POSITION_X_INCREMENT * movement_direction
+	position.x += (INVADERS_POSITION_X_INCREMENT * movement_direction)
 	
 func spawn_friendly(friendly_config, spawn_position: Vector2):
 	var friendly = friendly_scene.instantiate() as Friendly
@@ -136,45 +138,56 @@ func on_invader_destroyed(points: int):
 	invader_destroyed.emit(points)
 	invader_destroyed_count += 1
 	print("Invader destroyed. Count: ", invader_destroyed_count)
-	if invader_destroyed_count == invader_total_count:
-		if wave_count < MAX_WAVES - 1:
-			print("Starting new wave")
-			start_new_wave()
-		else:
-			game_won.emit()
-			shot_timer.stop()
-			movement_timer.stop()
+	var life_manager = get_node("../LifeManager") as LifeManager
+	if invader_destroyed_count == invader_total_count && life_manager.lifes > 0:
+		#if wave_count < MAX_WAVES - 1:
+		#	print("Starting new wave")
+		start_new_wave()
+	#else:
+	#	game_won.emit()
+	#	shot_timer.stop()
+	#	movement_timer.stop()
 
 func on_friendly_destroyed(is_net: bool):
 	friendly_destroyed.emit(is_net)
+	var life_manager = get_node("../LifeManager") as LifeManager
 	if !is_net:
-		var life_manager = get_node("../LifeManager") as LifeManager
 		if life_manager:
 			life_manager.on_player_destroyed()
 			
-			if life_manager.lifes <= 0:
-				print("No lives... ending game")
-				game_over()
+			#if life_manager.lifes <= 0:
+			#	print("No lives... ending game")
+				#game_over()
 		else:
 			print("Life manager not called")
+	invader_destroyed_count += 1
+	print(invader_destroyed_count)
+	if invader_destroyed_count == invader_total_count && life_manager.lifes > 0:
+		#if wave_count < MAX_WAVES - 1:
+		#	print("Starting new wave")
+		start_new_wave()
 			
 func start_new_wave():
-	if wave_count < MAX_WAVES:
-		wave_count += 1
-		invader_destroyed_count = 0
-		print("Starting Wave", wave_count)
+	var life_manager = get_node("../LifeManager") as LifeManager
+	
+	INVADERS_POSITION_X_INCREMENT += 2
+
+	print("current speed is: " + str(INVADERS_POSITION_X_INCREMENT))
+	
+		#wave_count += 1
+	invader_destroyed_count = 0
+		#print("Starting Wave", wave_count)
 		
-		# Reset spawner position to its original location
-		position = Vector2(0, -200)  # Adjust this if your starting position is different
+	# Reset spawner position to its original location
+	position = Vector2(0, -200)  # Adjust this if your starting position is different
 		
-		INVADERS_POSITION_X_INCREMENT += 5
-		$"../Player".speed += 10
+	$"../Player".speed += 10
 		
-		spawn_wave()
-	else:
-		game_won.emit()
-		shot_timer.stop()
-		movement_timer.stop()
+	spawn_wave()
+	#else:
+	#	game_won.emit()
+	#	shot_timer.stop()
+	#	movement_timer.stop()
 		
 func _on_bottom_wall_area_entered(area):
 	game_lost.emit()
@@ -206,7 +219,7 @@ func game_over():
 	if player:
 		player.set_process(false)  # Disable player script execution
 	# Delay before transitioning (optional, for effect)
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	# Change scene to the game over screen
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 	on_game_lost()

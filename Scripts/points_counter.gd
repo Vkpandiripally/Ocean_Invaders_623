@@ -19,7 +19,7 @@ func increase_points(points_to_add: int):
 
 func multiply_points(is_net: bool):
 	if (is_net):
-		points *= 2
+		points += abs(points) 
 		on_points_increased.emit(points)
 	else:
 		points -= 100

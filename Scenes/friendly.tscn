@@ -8,8 +8,8 @@
 radius = 19.9249
 
 [node name="friendly" type="Area2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 34
 script = ExtResource("1_4iwmk")
 net_scene = ExtResource("2_rsm43")
 
