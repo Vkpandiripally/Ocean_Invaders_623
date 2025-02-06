@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl8ier2sa65rs"
-path="res://.godot/imported/main_menu.png-d73406f3a574df0d202f4c635eb3acab.ctex"
+uid="uid://cdveonkhnyd8m"
+path="res://.godot/imported/storyyradarTEXT.png-d0e8d21b5c1710667c70281b2ce82920.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/main_menu.png"
-dest_files=["res://.godot/imported/main_menu.png-d73406f3a574df0d202f4c635eb3acab.ctex"]
+source_file="res://Assets/Backgrounds/storyyradarTEXT.png"
+dest_files=["res://.godot/imported/storyyradarTEXT.png-d0e8d21b5c1710667c70281b2ce82920.ctex"]
 
 [params]
 

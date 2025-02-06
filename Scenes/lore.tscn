@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0e0y3kwemoe"]
+
+[ext_resource type="Texture2D" uid="uid://cdveonkhnyd8m" path="res://Assets/Backgrounds/storyyradarTEXT.png" id="1_cdgjp"]
+[ext_resource type="Script" path="res://Scripts/lore.gd" id="1_pfyl4"]
+
+[node name="Lore" type="CanvasLayer"]
+script = ExtResource("1_pfyl4")
+
+[node name="Lore desc" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_cdgjp")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1200.0
+offset_top = 672.0
+offset_right = 1256.0
+offset_bottom = 703.0
+text = "Arrow"
+
+[connection signal="pressed" from="Button" to="." method="load_game"]

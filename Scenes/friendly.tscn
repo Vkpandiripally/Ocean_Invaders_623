@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8mhu1gpc2knp"]
 
-[ext_resource type="Script" path="res://Scenes/friendly.gd" id="1_4iwmk"]
+[ext_resource type="Script" path="res://Scripts/friendly.gd" id="1_4iwmk"]
 [ext_resource type="Texture2D" uid="uid://i7mbj3hatiov" path="res://Assets/Invaders/test_invaders.png" id="2_k82nx"]
 [ext_resource type="PackedScene" uid="uid://c7g1tly3yukj7" path="res://Scenes/caught_net.tscn" id="2_rsm43"]
 

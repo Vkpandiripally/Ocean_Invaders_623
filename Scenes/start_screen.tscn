@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4d3m1mqpvadr"]
+[gd_scene load_steps=5 format=3 uid="uid://b4d3m1mqpvadr"]
 
 [ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_101l1"]
-[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="2_nlfpm"]
 [ext_resource type="Texture2D" uid="uid://i7mbj3hatiov" path="res://Assets/Invaders/test_invaders.png" id="3_3rpif"]
-[ext_resource type="Texture2D" uid="uid://bn227mp3yqjlo" path="res://Assets/Invaders/Invader2-1.png" id="3_haxs7"]
-[ext_resource type="Texture2D" uid="uid://dy2h5dklc8h7p" path="res://Assets/Invaders/Invader1-1.png" id="4_a3vfq"]
-[ext_resource type="Texture2D" uid="uid://cl8ier2sa65rs" path="res://Assets/Backgrounds/main_menu.png" id="6_1ayju"]
+[ext_resource type="Texture2D" uid="uid://c6psurbpd2k2r" path="res://Assets/UI/start_button.png" id="4_4o0dg"]
+[ext_resource type="Texture2D" uid="uid://ccctkpd7hgypn" path="res://Assets/Backgrounds/updatedstartscreen.png" id="6_7gg7e"]
 
 [node name="start_screen" type="CanvasLayer"]
 script = ExtResource("1_101l1")
@@ -17,119 +15,19 @@ position = Vector2(477.748, 294.748)
 rotation = 3.14159
 texture = ExtResource("3_3rpif")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -347.0
-offset_top = -206.0
-offset_right = 337.0
-offset_bottom = 341.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 32
-alignment = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer3"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Invasive_container1" type="HBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Invader1Texture" type="TextureRect" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer/Invasive_container1"]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-texture = ExtResource("3_3rpif")
-
-[node name="Invader1Label" type="Label" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer/Invasive_container1"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_nlfpm")
-theme_override_font_sizes/font_size = 30
-text = "= 10 POINTS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Invasive_container2" type="HBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Invader2Texture" type="TextureRect" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer/Invasive_container2"]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("3_haxs7")
-
-[node name="Invader2Label" type="Label" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer/Invasive_container2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_nlfpm")
-theme_override_font_sizes/font_size = 30
-text = "= 20 POINTS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Invasive_container3" type="HBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Invader3Texture" type="TextureRect" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer/Invasive_container3"]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("4_a3vfq")
-
-[node name="Invader3Label" type="Label" parent="MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer/Invasive_container3"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_nlfpm")
-theme_override_font_sizes/font_size = 30
-text = "= 40 POINTS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer3/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_nlfpm")
-theme_override_font_sizes/font_size = 40
-text = "PRESS TO START"
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.75
-autostart = true
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -4
-position = Vector2(640, 356)
-scale = Vector2(1.01319, 1.01319)
-texture = ExtResource("6_1ayju")
+position = Vector2(640, 360)
+texture = ExtResource("6_7gg7e")
+metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer3/VBoxContainer2/Button" to="." method="load_game"]
-[connection signal="timeout" from="Timer" to="." method="show_next_control"]
+[node name="Button" type="Button" parent="."]
+offset_left = 520.0
+offset_top = 280.0
+offset_right = 628.0
+offset_bottom = 388.0
+scale = Vector2(2.74517, 2.56314)
+icon = ExtResource("4_4o0dg")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="load_lore"]

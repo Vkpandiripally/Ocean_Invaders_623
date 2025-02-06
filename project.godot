@@ -56,4 +56,4 @@ shoot_net={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.195421, 4.23551e-06, 0.853707, 1)
+environment/defaults/default_clear_color=Color(0.0705882, 0.121569, 0.176471, 1)
