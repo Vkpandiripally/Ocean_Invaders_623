@@ -133,7 +133,7 @@ func on_invader_destroyed(points: int):
 		start_new_wave()
 
 func on_friendly_destroyed(is_net: bool):
-	friendly_destroyed.emit(is_net)
+	#friendly_destroyed.emit(is_net)
 	var life_manager = get_node("../LifeManager") as LifeManager
 	if !is_net:
 		if life_manager:

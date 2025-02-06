@@ -24,6 +24,7 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 		friendly_destroyed.emit(false)
 		queue_free()
+		
 	if area is Net:
 		var caught_net = net_scene.instantiate() as CaughtNet
 		caught_net.position = area.position - Vector2(0,20)

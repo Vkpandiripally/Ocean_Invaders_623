@@ -1,18 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://ecrrh3v5emmu"]
+[gd_scene load_steps=20 format=3 uid="uid://ecrrh3v5emmu"]
 
 [ext_resource type="Texture2D" uid="uid://dy2h5dklc8h7p" path="res://Assets/Invaders/Invader1-1.png" id="1_3dy66"]
 [ext_resource type="Script" path="res://Scripts/invader.gd" id="1_n2doj"]
 [ext_resource type="PackedScene" uid="uid://c7g1tly3yukj7" path="res://Scenes/caught_net.tscn" id="2_sjrnn"]
-[ext_resource type="Texture2D" uid="uid://b06nkmo0fwryx" path="res://Assets/Invaders/Invader1-2.png" id="3_pkxyw"]
-[ext_resource type="Texture2D" uid="uid://bn227mp3yqjlo" path="res://Assets/Invaders/Invader2-1.png" id="4_qhu3u"]
-[ext_resource type="Texture2D" uid="uid://gf81hnr41a4c" path="res://Assets/Invaders/Invader2-2.png" id="5_ga08h"]
-[ext_resource type="Texture2D" uid="uid://m4ub6oll4ikv" path="res://Assets/Invaders/Invader3-1.png" id="6_w4x8r"]
-[ext_resource type="Texture2D" uid="uid://bfg1tahjcdwb4" path="res://Assets/Invaders/Invader3-2.png" id="7_0s2rd"]
+[ext_resource type="Texture2D" uid="uid://citss2jmwpje7" path="res://Assets/Invaders/pixel_lionfish_sprite.png" id="8_alvcd"]
+[ext_resource type="Texture2D" uid="uid://dmsghg5aq8v3u" path="res://Assets/Invaders/pixel_eel_sprite.png" id="8_d67o4"]
 [ext_resource type="Texture2D" uid="uid://ctu8snp11c12t" path="res://Assets/Invaders/Invader-explosion-1.png" id="8_dus1b"]
+[ext_resource type="Texture2D" uid="uid://wef8b2eqy4lm" path="res://Assets/Invaders/pixel_eel2_sprite.png" id="9_8t2wg"]
+[ext_resource type="Texture2D" uid="uid://u7orewyqmx2t" path="res://Assets/Invaders/pixel_lionfish2_sprite.png" id="9_14c4a"]
 [ext_resource type="Texture2D" uid="uid://dcoy6mphlfi8i" path="res://Assets/Invaders/Invader-explosion-2.png" id="9_ndrok"]
+[ext_resource type="Texture2D" uid="uid://c4k6b4ahcwcqh" path="res://Assets/Invaders/starfishsprite1.png" id="10_814gu"]
+[ext_resource type="Texture2D" uid="uid://dh8fiayvid1k6" path="res://Assets/Invaders/starfishsprite2.png" id="11_tixj8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_it4md"]
-radius = 4.43001
+radius = 6.00521
 
 [sub_resource type="Animation" id="Animation_dmbio"]
 length = 0.001
@@ -58,7 +59,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("6_w4x8r"), ExtResource("7_0s2rd")]
+"values": [ExtResource("8_alvcd"), ExtResource("9_14c4a")]
 }
 
 [sub_resource type="Animation" id="Animation_u36to"]
@@ -74,7 +75,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("4_qhu3u"), ExtResource("5_ga08h")]
+"values": [ExtResource("8_d67o4"), ExtResource("9_8t2wg")]
 }
 
 [sub_resource type="Animation" id="Animation_11bof"]
@@ -90,7 +91,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("1_3dy66"), ExtResource("3_pkxyw")]
+"values": [ExtResource("10_814gu"), ExtResource("11_tixj8")]
 }
 
 [sub_resource type="Animation" id="Animation_g25gf"]
@@ -127,7 +128,7 @@ net_scene = ExtResource("2_sjrnn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3dy66")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
