@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://l84t8jmtowc5"]
+[gd_scene load_steps=11 format=3 uid="uid://l84t8jmtowc5"]
 
 [ext_resource type="PackedScene" uid="uid://fupd1v1pxa3a" path="res://Scenes/player.tscn" id="1_11fx2"]
 [ext_resource type="PackedScene" uid="uid://bya8ci6vmax2" path="res://Scenes/invader_spawner.tscn" id="1_gqwgy"]
+[ext_resource type="PackedScene" uid="uid://clb5obiyph05" path="res://Scenes/AudioManager.tscn" id="1_pfql4"]
 [ext_resource type="PackedScene" uid="uid://duw7gg6161xho" path="res://Scenes/laser_catcher.tscn" id="2_tjl1t"]
 [ext_resource type="Script" path="res://Scenes/life_manager.gd" id="4_jgys5"]
 [ext_resource type="PackedScene" uid="uid://jraisv2tpnhg" path="res://Scenes/ui.tscn" id="6_0cjiu"]
@@ -62,6 +63,8 @@ script = ExtResource("4_jgys5")
 
 [node name="PointsCounter" type="Node" parent="."]
 script = ExtResource("6_w0ee5")
+
+[node name="AudioManager" parent="." instance=ExtResource("1_pfql4")]
 
 [node name="UI" parent="." instance=ExtResource("6_0cjiu")]
 

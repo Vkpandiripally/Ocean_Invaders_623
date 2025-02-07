@@ -36,6 +36,7 @@ texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("4_k0pb6")
 texture_pressed = ExtResource("5_cutka")
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -57,6 +58,7 @@ texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("6_vthvi")
 texture_pressed = ExtResource("7_84g3i")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="load_lore"]
 [connection signal="pressed" from="VBoxContainer2/TextureButton" to="." method="exit"]

@@ -29,6 +29,7 @@ var spawn_location_global=Vector2()
 #NODE REFERENCES
 @onready var movement_timer = $MovementTimer
 @onready var shot_timer = $ShotTimer
+@onready var audio_manager = get_tree().root.get_node("main/AudioManager")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -128,6 +129,7 @@ func on_invader_destroyed(points: int):
 	print("Invader destroyed. Count: ", invader_destroyed_count)
 	var life_manager = get_node("../LifeManager") as LifeManager
 	if invader_destroyed_count == invader_total_count && life_manager.lives > 0:
+		audio_manager.WaveEnd()
 		start_new_wave()
 
 func on_friendly_destroyed(is_net: bool):
@@ -166,6 +168,7 @@ func on_game_lost():
 	movement_direction = 0
 	
 func game_over():
+	await audio_manager.GameEnd()
 	print("Game Over! Transitioning to game over screen.")
 	# Stop all timers to halt enemy movement and shooting
 	movement_timer.stop()

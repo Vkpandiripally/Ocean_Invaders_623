@@ -9,6 +9,8 @@ signal invader_destroyed(points: int)
 @onready var sprite_2d = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 var config: Resource
+@onready var audio_manager = get_tree().root.get_node("main/AudioManager")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,10 +19,12 @@ func _ready() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Laser:
+		audio_manager.EnemyHit()
 		area.queue_free()
 		queue_free()
 		invader_destroyed.emit(config.points)
 	if area is Net:
+		audio_manager.EnemyHitNet()
 		var caught_net = net_scene.instantiate() as CaughtNet
 		caught_net.position = area.position - Vector2(0,20)
 		var root_node = get_tree().root.get_node("main")

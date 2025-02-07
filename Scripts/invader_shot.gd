@@ -16,4 +16,6 @@ func _on_area_entered(area: Area2D) -> void:
 		queue_free()
 		
 func _ready():
+	var audio_manager = get_tree().root.get_node("main/AudioManager")
+	audio_manager.InvaderShot()
 	add_to_group("invader_shots")

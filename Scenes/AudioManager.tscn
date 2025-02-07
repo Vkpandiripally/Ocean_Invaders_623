@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://clb5obiyph05"]
+
+[ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="1_ufge3"]
+[ext_resource type="AudioStream" uid="uid://c7tuyijpn2tor" path="res://Assets/Sounds/Enemy Hit (With Harpoon).wav" id="1_wv768"]
+[ext_resource type="AudioStream" uid="uid://cwx6r31vntxv6" path="res://Assets/Sounds/Game Over.wav" id="3_yyvos"]
+[ext_resource type="AudioStream" uid="uid://bvecs25w1f2fs" path="res://Assets/Sounds/Enemy Hit (With Net).wav" id="4_iafvo"]
+[ext_resource type="AudioStream" uid="uid://cmkvc1k8up4g1" path="res://Assets/Sounds/Enemy Shooting at player (Bubble).wav" id="5_a6701"]
+[ext_resource type="AudioStream" uid="uid://c8rpo6r71ay5b" path="res://Assets/Sounds/Turtle Get! (Reeled In).wav" id="6_ix474"]
+[ext_resource type="AudioStream" uid="uid://cfseche64j8w8" path="res://Assets/Sounds/Turtle Hit (With Harpoon).wav" id="7_vfq0i"]
+[ext_resource type="AudioStream" uid="uid://m3a7pfsc54yg" path="res://Assets/Sounds/Wave Cleared.wav" id="8_hr4ol"]
+[ext_resource type="AudioStream" uid="uid://bqfo5kfenjov6" path="res://Assets/Sounds/Menu Boop (Select).wav" id="9_ml3kx"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_ufge3")
+
+[node name="EnemyHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_wv768")
+volume_db = 10.0
+
+[node name="GameEnd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yyvos")
+volume_db = 10.0
+
+[node name="EnemyHitNet" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_iafvo")
+volume_db = 10.0
+
+[node name="InvaderShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_a6701")
+volume_db = 10.0
+
+[node name="FriendlyCaught" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ix474")
+volume_db = 10.0
+
+[node name="FriendlyHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vfq0i")
+volume_db = 10.0
+
+[node name="WaveEnd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_hr4ol")
+volume_db = 10.0
+
+[node name="MenuBoop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ml3kx")
+volume_db = 10.0
