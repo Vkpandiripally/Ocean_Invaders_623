@@ -1,6 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://ecrrh3v5emmu"]
+[gd_scene load_steps=14 format=3 uid="uid://ecrrh3v5emmu"]
 
-[ext_resource type="Texture2D" uid="uid://dy2h5dklc8h7p" path="res://Assets/Invaders/Invader1-1.png" id="1_3dy66"]
 [ext_resource type="Script" path="res://Scripts/invader.gd" id="1_n2doj"]
 [ext_resource type="PackedScene" uid="uid://c7g1tly3yukj7" path="res://Scenes/caught_net.tscn" id="2_sjrnn"]
 [ext_resource type="Texture2D" uid="uid://citss2jmwpje7" path="res://Assets/Invaders/pixel_lionfish_sprite.png" id="8_alvcd"]
@@ -61,44 +60,11 @@ tracks/0/keys = {
 "values": [ExtResource("10_814gu"), ExtResource("11_tixj8")]
 }
 
-[sub_resource type="Animation" id="Animation_dmbio"]
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_3dy66")]
-}
-
-[sub_resource type="Animation" id="Animation_g25gf"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("1_3dy66"), ExtResource("1_3dy66")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0xixl"]
 _data = {
-"RESET": SubResource("Animation_dmbio"),
 "move_1": SubResource("Animation_7rdw5"),
 "move_2": SubResource("Animation_u36to"),
-"move_3": SubResource("Animation_11bof"),
-"new_animation": SubResource("Animation_g25gf")
+"move_3": SubResource("Animation_11bof")
 }
 
 [node name="Invader" type="Area2D"]
@@ -111,7 +77,7 @@ net_scene = ExtResource("2_sjrnn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_3dy66")
+texture = ExtResource("10_814gu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 4

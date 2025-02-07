@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4d3m1mqpvadr"]
+[gd_scene load_steps=7 format=3 uid="uid://b4d3m1mqpvadr"]
 
 [ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_101l1"]
-[ext_resource type="Texture2D" uid="uid://i7mbj3hatiov" path="res://Assets/Invaders/test_invaders.png" id="3_3rpif"]
 [ext_resource type="Texture2D" uid="uid://bm2rsigmebppq" path="res://Assets/UI/start_button_cropped.png" id="4_k0pb6"]
 [ext_resource type="Texture2D" uid="uid://dcqrwxdhs6luh" path="res://Assets/UI/start_button_mousedown.png" id="5_cutka"]
 [ext_resource type="Texture2D" uid="uid://ccctkpd7hgypn" path="res://Assets/Backgrounds/updatedstartscreen.png" id="6_7gg7e"]
@@ -10,13 +9,6 @@
 
 [node name="start_screen" type="CanvasLayer"]
 script = ExtResource("1_101l1")
-
-[node name="MeshInstance2D" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-position = Vector2(477.748, 294.748)
-rotation = 3.14159
-texture = ExtResource("3_3rpif")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -4
