@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://d4fstfgm7gd8q"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_aml3k"]
-[ext_resource type="Texture2D" uid="uid://cs15mycrjccio" path="res://Assets/UI/exit_button.png" id="3_4exhy"]
 [ext_resource type="Texture2D" uid="uid://dk2yn73k1e2tj" path="res://Assets/Backgrounds/game_over.png" id="3_5qx3d"]
-[ext_resource type="Texture2D" uid="uid://dkuiey1y6p73s" path="res://Assets/UI/exit_button_mousedown.png" id="4_ey8hg"]
+[ext_resource type="Texture2D" uid="uid://d07pf8kfr76gq" path="res://Assets/UI/menu_button.png" id="5_7csix"]
 [ext_resource type="Texture2D" uid="uid://ci0ibb8hwqsmn" path="res://Assets/UI/replay_button.png" id="5_swqwp"]
 [ext_resource type="Texture2D" uid="uid://ltwrg0cnb7ob" path="res://Assets/UI/replay_button_mousedown.png" id="6_b38gn"]
+[ext_resource type="Texture2D" uid="uid://bqnimxhecnr42" path="res://Assets/UI/menu_button_pressed.png" id="6_hc8re"]
 
 [node name="GameOver" type="CanvasLayer"]
 layer = 9
@@ -47,33 +47,12 @@ texture_filter = 1
 position = Vector2(639, 359)
 texture = ExtResource("3_5qx3d")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-texture_filter = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -462.0
-offset_top = 75.0
-offset_right = -418.0
-offset_bottom = 125.0
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(4, 4)
-alignment = 1
-
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("3_4exhy")
-texture_pressed = ExtResource("4_ey8hg")
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 texture_filter = 1
-offset_left = 793.0
-offset_top = 361.0
-offset_right = 839.0
-offset_bottom = 371.0
+offset_left = 656.0
+offset_top = 312.0
+offset_right = 702.0
+offset_bottom = 322.0
 scale = Vector2(5, 5)
 alignment = 1
 
@@ -82,5 +61,20 @@ layout_mode = 2
 texture_normal = ExtResource("5_swqwp")
 texture_pressed = ExtResource("6_b38gn")
 
-[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="exit"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_direction = 2
+offset_left = 656.0
+offset_top = 384.0
+offset_right = 692.0
+offset_bottom = 394.0
+scale = Vector2(4.71767, 5.23136)
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("5_7csix")
+texture_pressed = ExtResource("6_hc8re")
+
 [connection signal="pressed" from="VBoxContainer2/TextureButton" to="." method="on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer3/TextureButton" to="." method="return_to_menu"]

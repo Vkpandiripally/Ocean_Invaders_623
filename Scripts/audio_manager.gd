@@ -1,9 +1,5 @@
 extends Node
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 func EnemyHit():
 	$EnemyHit.play(0.90)
 
@@ -25,5 +21,11 @@ func FriendlyHit():
 func WaveEnd():
 	$WaveEnd.play(0.36)
 
+func LoreRadar():
+	$LoreRadar.play()
+
 func MenuBoop():
 	$MenuBoop.play(0.34)
+
+func PlayerHit():
+	$PlayerHit.play(1.05)

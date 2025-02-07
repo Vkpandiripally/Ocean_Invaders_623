@@ -8,9 +8,6 @@ var life_texture = preload("res://Assets/UI/pixel_submarine_lives_sprite.png")
 @onready var points_counter = $"../PointsCounter" as PointsCounter
 @onready var life_manager = $"../LifeManager" as LifeManager
 @onready var invader_spawner = $"../InvaderSpawner" as InvaderSpawner
-#@onready var game_over_label: Label = %GameOverLabel
-#@onready var game_over_button: Button = %GameOverButton
-#@onready var game_over_container: CenterContainer = $MarginContainer/GameOverContainer
 
 var global_lives = 5
 func _ready():
