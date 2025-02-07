@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvaderResource" load_steps=3 format=3 uid="uid://beynju3vxiach"]
+
+[ext_resource type="Script" path="res://Scripts/invader_config.gd" id="1_06buo"]
+[ext_resource type="Texture2D" uid="uid://citss2jmwpje7" path="res://Assets/Invaders/pixel_lionfish_sprite.png" id="2_7ecct"]
+
+[resource]
+script = ExtResource("1_06buo")
+sprite = ExtResource("2_7ecct")
+width = 15
+animation_name = "move_1"
+points = 10

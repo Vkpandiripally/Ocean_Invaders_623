@@ -1,3 +1,109 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1737860129
-icon.svg::CompressedTexture2D::2029747350128382331::1737860106::1737860132::1::::<><>::
+::res://::1738919413
+icon.svg::CompressedTexture2D::2029747350128382331::1738012638::1738903873::1::::<><>::
+::res://Assets/::1738912095
+::res://Assets/Backgrounds/::1738903873
+background_final.png::CompressedTexture2D::2232926674442611032::1738899727::1738903873::1::::<><>::
+game_over.png::CompressedTexture2D::7918370834457416059::1738899727::1738903873::1::::<><>::
+storyyradarTEXT.png::CompressedTexture2D::5027028398809253226::1738858814::1738903873::1::::<><>::
+updatedstartscreen.png::CompressedTexture2D::4918520084920215627::1738823343::1738903873::1::::<><>::
+::res://Assets/font/::1738903873
+andina.ttf::FontFile::5319405350257717215::1738012946::1738903873::1::::<><>::
+dogicapixel.ttf::FontFile::6912520294394296775::1738899727::1738903873::1::::<><>::
+upheavtt.ttf::FontFile::8911922626614489677::1738823299::1738903873::1::::<><>::
+::res://Assets/Invaders/::1738903873
+pixel_eel2_sprite.png::CompressedTexture2D::1552774681652815094::1738883252::1738903873::1::::<><>::
+pixel_eel_sprite.png::CompressedTexture2D::8039064138329637800::1738883252::1738903873::1::::<><>::
+pixel_happy_sea-turtle_sprite.png::CompressedTexture2D::5725085299618377685::1738883252::1738903873::1::::<><>::
+pixel_lionfish2_sprite.png::CompressedTexture2D::1470717602477102693::1738883252::1738903873::1::::<><>::
+pixel_lionfish_sprite.png::CompressedTexture2D::5374701776586599652::1738883252::1738903873::1::::<><>::
+pixel_sad_sea-turtle_sprite.png::CompressedTexture2D::9068510430764197438::1738883252::1738903873::1::::<><>::
+pixel_sea-turtle2_sprite.png::CompressedTexture2D::299315132776039767::1738883252::1738903873::1::::<><>::
+starfishsprite1.png::CompressedTexture2D::6830847146498146655::1738883252::1738903873::1::::<><>::
+starfishsprite2.png::CompressedTexture2D::7719026331784862867::1738883252::1738903873::1::::<><>::
+::res://Assets/Player/::1738903873
+pixel_orange_submarine_sprite.png::CompressedTexture2D::4307627347654459369::1738899727::1738903873::1::::<><>::
+pixel_red_submarine_sprite.png::CompressedTexture2D::6226335720305153373::1738899727::1738903873::1::::<><>::
+pixel_yellow_submarine_sprite.png::CompressedTexture2D::2003514325359313281::1738899727::1738903873::1::::<><>::
+::res://Assets/Sounds/::1738919413
+Enemy Hit (With Harpoon).wav::AudioStreamWAV::7059365174829449217::1738899727::1738903873::1::::<><>::
+Enemy Hit (With Net).wav::AudioStreamWAV::3868798954892979632::1738899727::1738903873::1::::<><>::
+Enemy Shooting at player (Bubble).wav::AudioStreamWAV::5637031279600960946::1738899727::1738903873::1::::<><>::
+Game Over.wav::AudioStreamWAV::6366390712829442253::1738899727::1738903873::1::::<><>::
+HIGH SCORE (Score Increase).wav::AudioStreamWAV::1154895744485163277::1738899727::1738903873::1::::<><>::
+Low Health Jingle.wav::AudioStreamWAV::8624708317370786306::1738899727::1738903873::1::::<><>::
+Menu Boop (Select).wav::AudioStreamWAV::3520668215544803705::1738899727::1738903873::1::::<><>::
+Ocean Intruders OST.mp3::AudioStreamMP3::4631247135742682630::1738912954::1738913918::1::::<><>::
+Player Hit.wav::AudioStreamWAV::8799219412206902089::1738919394::1738919414::1::::<><>::
+RADAR (Multiple).wav::AudioStreamWAV::6817204340214733800::1738899727::1738903873::1::::<><>::
+RADAR (Single).wav::AudioStreamWAV::5879842604296021709::1738899727::1738903873::1::::<><>::
+Turtle Get! (Reeled In).wav::AudioStreamWAV::7125105041240689085::1738899727::1738903873::1::::<><>::
+Turtle Hit (With Harpoon).wav::AudioStreamWAV::5161191199998628873::1738899727::1738903873::1::::<><>::
+Turtle Hit (With Net).wav::AudioStreamWAV::6448578094480509813::1738899727::1738903873::1::::<><>::
+Wave Begin.wav::AudioStreamWAV::2918755253059373672::1738899727::1738903873::1::::<><>::
+Wave Cleared.wav::AudioStreamWAV::900126642571017018::1738899727::1738903873::1::::<><>::
+::res://Assets/UI/::1738912971
+exit_button.png::CompressedTexture2D::6091758578220714598::1738899727::1738903873::1::::<><>::
+exit_button_mousedown.png::CompressedTexture2D::7902932223516396210::1738899727::1738903873::1::::<><>::
+menu_button.png::CompressedTexture2D::8980964662990834568::1738911996::1738912000::1::::<><>::
+menu_button_pressed.png::CompressedTexture2D::3536787477209016961::1738912092::1738912095::1::::<><>::
+pixel_arrow_sprite.png::CompressedTexture2D::30160474718321470::1738899727::1738903873::1::::<><>::
+pixel_arrow_sprite_mousedown.png::CompressedTexture2D::6256316302909307833::1738899727::1738903873::1::::<><>::
+pixel_submarine_lives_sprite.png::CompressedTexture2D::8710949736583636051::1738899727::1738903873::1::::<><>::
+replay_button.png::CompressedTexture2D::5386449185927985517::1738899727::1738903873::1::::<><>::
+replay_button_mousedown.png::CompressedTexture2D::812666943551268661::1738899727::1738903873::1::::<><>::
+start_button_cropped.png::CompressedTexture2D::3285489769882676882::1738899727::1738903873::1::::<><>::
+start_button_mousedown.png::CompressedTexture2D::7333742471778062355::1738899727::1738903873::1::::<><>::
+::res://Assets/Weapons/::1738903873
+bubbles.png::CompressedTexture2D::3778765999490366370::1738899727::1738903873::1::::<><>::
+Laser.png::CompressedTexture2D::2820501768484005287::1738012946::1738903873::1::::<><>::
+net1.png::CompressedTexture2D::7444915146037546922::1738797805::1738903873::1::::<><>::
+net2.png::CompressedTexture2D::3515328209370900217::1738797805::1738903873::1::::<><>::
+trident.png::CompressedTexture2D::8192081710829253845::1738797805::1738903873::1::::<><>::
+::res://Resources/::1738883252
+friendly.tres::Resource/InvaderResource::2775576562828598488::1738883252::0::1::::<><>::res://Scripts/invader_config.gd<>uid://cntjk3d645uiv::::res://Assets/Invaders/pixel_happy_sea-turtle_sprite.png
+invader1.tres::Resource/InvaderResource::4537389959638431653::1738883252::0::1::::<><>::res://Scripts/invader_config.gd<>uid://c4k6b4ahcwcqh::::res://Assets/Invaders/starfishsprite1.png
+invader2.tres::Resource/InvaderResource::4351948917429207057::1738883252::0::1::::<><>::res://Scripts/invader_config.gd<>uid://dmsghg5aq8v3u::::res://Assets/Invaders/pixel_eel_sprite.png
+invader3.tres::Resource/InvaderResource::2717527612100493979::1738883252::0::1::::<><>::res://Scripts/invader_config.gd<>uid://citss2jmwpje7::::res://Assets/Invaders/pixel_lionfish_sprite.png
+::res://Scenes/::1738919400
+AudioManager.tscn::PackedScene::163200870648496068::1738919374::0::1::::<><>::res://Scripts/audio_manager.gd<>uid://c7tuyijpn2tor::::res://Assets/Sounds/Enemy Hit (With Harpoon).wav<>uid://cwx6r31vntxv6::::res://Assets/Sounds/Game Over.wav<>uid://bvecs25w1f2fs::::res://Assets/Sounds/Enemy Hit (With Net).wav<>uid://cmkvc1k8up4g1::::res://Assets/Sounds/Enemy Shooting at player (Bubble).wav<>uid://c8rpo6r71ay5b::::res://Assets/Sounds/Turtle Get! (Reeled In).wav<>uid://cfseche64j8w8::::res://Assets/Sounds/Turtle Hit (With Harpoon).wav<>uid://m3a7pfsc54yg::::res://Assets/Sounds/Wave Cleared.wav<>uid://bqfo5kfenjov6::::res://Assets/Sounds/Menu Boop (Select).wav<>uid://cp1ifb3a8d3jd::::res://Assets/Sounds/RADAR (Single).wav
+caught_net.tscn::PackedScene::7032883818360937626::1738903879::0::1::::<><>::res://Scripts/caught_net.gd<>uid://bqc37a74frv6p::::res://Assets/Weapons/net2.png<>uid://bggjitmo1byod::::res://Assets/Weapons/Laser.png<>res://Scripts/caught_line_2d.gd
+fish_spawner.tscn::PackedScene::3828739146464880859::1738903879::0::1::::<><>::
+friendly.tscn::PackedScene::4727887167185557705::1738903878::0::1::::<><>::res://Scripts/friendly.gd<>uid://c7g1tly3yukj7::::res://Scenes/caught_net.tscn<>uid://cntjk3d645uiv::::res://Assets/Invaders/pixel_happy_sea-turtle_sprite.png
+game_over.tscn::PackedScene::9206187513780336046::1738917856::0::1::::<><>::res://Scripts/game_over.gd<>uid://dk2yn73k1e2tj::::res://Assets/Backgrounds/game_over.png<>uid://d07pf8kfr76gq::::res://Assets/UI/menu_button.png<>uid://ci0ibb8hwqsmn::::res://Assets/UI/replay_button.png<>uid://ltwrg0cnb7ob::::res://Assets/UI/replay_button_mousedown.png<>uid://bqnimxhecnr42::::res://Assets/UI/menu_button_pressed.png
+invader.tscn::PackedScene::285947089346042364::1738903878::0::1::::<><>::res://Scripts/invader.gd<>uid://c7g1tly3yukj7::::res://Scenes/caught_net.tscn<>uid://citss2jmwpje7::::res://Assets/Invaders/pixel_lionfish_sprite.png<>uid://dmsghg5aq8v3u::::res://Assets/Invaders/pixel_eel_sprite.png<>uid://wef8b2eqy4lm::::res://Assets/Invaders/pixel_eel2_sprite.png<>uid://u7orewyqmx2t::::res://Assets/Invaders/pixel_lionfish2_sprite.png<>uid://c4k6b4ahcwcqh::::res://Assets/Invaders/starfishsprite1.png<>uid://dh8fiayvid1k6::::res://Assets/Invaders/starfishsprite2.png
+invader_shot.tscn::PackedScene::6271574984389477577::1738903878::0::1::::<><>::res://Scripts/invader_shot.gd<>uid://bt3pyu4hxqp35::::res://Assets/Weapons/bubbles.png
+invader_spawner.tscn::PackedScene::119792959776497849::1738917857::0::1::::<><>::res://Scripts/invader_spawner.gd
+laser.tscn::PackedScene::1595202862803659331::1738917857::0::1::::<><>::res://Scripts/laser.gd<>uid://doyknhtkb5006::::res://Assets/Weapons/trident.png
+laser_catcher.tscn::PackedScene::8610409257214056088::1738917857::0::1::::<><>::res://Scripts/laser_catcher.gd<>uid://c7g1tly3yukj7::::res://Scenes/caught_net.tscn
+life_manager.gd::GDScript::-1::1738899727::0::1::::LifeManager<>Node<>::
+lore.tscn::PackedScene::262464791883132112::1738917856::0::1::::<><>::uid://cdveonkhnyd8m::::res://Assets/Backgrounds/storyyradarTEXT.png<>res://Scripts/lore.gd<>uid://ou0d3n7nvko::::res://Assets/UI/pixel_arrow_sprite.png<>uid://cveuu6pvsqkib::::res://Assets/UI/pixel_arrow_sprite_mousedown.png
+main.tscn::PackedScene::841998216521735066::1738917857::0::1::::<><>::uid://fupd1v1pxa3a::::res://Scenes/player.tscn<>uid://bya8ci6vmax2::::res://Scenes/invader_spawner.tscn<>uid://clb5obiyph05::::res://Scenes/AudioManager.tscn<>uid://duw7gg6161xho::::res://Scenes/laser_catcher.tscn<>res://Scenes/life_manager.gd<>uid://jraisv2tpnhg::::res://Scenes/ui.tscn<>res://Scripts/points_counter.gd<>uid://62v8gmm0qrae::::res://Assets/Backgrounds/background_final.png
+music_player.tscn::PackedScene::2780528029569990537::1738917857::0::1::::<><>::res://Scripts/music_player.gd
+net.tscn::PackedScene::2609401675924976266::1738903879::0::1::::<><>::res://Scripts/net.gd<>uid://decmwuo6mckj7::::res://Assets/Weapons/net1.png<>uid://bggjitmo1byod::::res://Assets/Weapons/Laser.png<>res://Scripts/line_2d.gd
+player.tscn::PackedScene::393149284794836576::1738917857::0::1::::<><>::res://Scripts/player.gd<>uid://3srt88pwb7dt::::res://Assets/Player/pixel_yellow_submarine_sprite.png<>res://Scripts/shot_origin.gd<>uid://wyy01l5ykmu2::::res://Scenes/laser.tscn<>uid://bdgap12mrcbmo::::res://Scenes/net.tscn<>uid://cuyc3su8wvmlp::::res://Assets/Player/pixel_red_submarine_sprite.png<>uid://b2mv808mxn8cj::::res://Assets/Player/pixel_orange_submarine_sprite.png
+start_screen.tscn::PackedScene::4429813172675133327::1738917857::0::1::::<><>::res://Scripts/start_screen.gd<>uid://bm2rsigmebppq::::res://Assets/UI/start_button_cropped.png<>uid://dcqrwxdhs6luh::::res://Assets/UI/start_button_mousedown.png<>uid://ccctkpd7hgypn::::res://Assets/Backgrounds/updatedstartscreen.png<>uid://cs15mycrjccio::::res://Assets/UI/exit_button.png<>uid://dkuiey1y6p73s::::res://Assets/UI/exit_button_mousedown.png
+ui.tscn::PackedScene::666809280026493808::1738917888::0::1::::<><>::res://Scripts/ui.gd<>uid://c5qqg1n7ihlt4::::res://Assets/font/dogicapixel.ttf
+::res://Scripts/::1738919340
+audio_manager.gd::GDScript::-1::1738919340::0::1::::<>Node<>::
+caught_line_2d.gd::GDScript::-1::1738899727::0::1::::<>Line2D<>::
+caught_net.gd::GDScript::-1::1738899727::0::1::::CaughtNet<>Area2D<>::
+friendly.gd::GDScript::-1::1738914985::0::1::::Friendly<>Area2D<>::
+game_over.gd::GDScript::-1::1738916031::0::1::::<>CanvasLayer<>::
+invader.gd::GDScript::-1::1738915210::0::1::::Invader<>Area2D<>::
+invader_config.gd::GDScript::-1::1738812791::0::1::::InvaderResource<>Resource<>::
+invader_shot.gd::GDScript::-1::1738915258::0::1::::InvaderShot<>Area2D<>::
+invader_spawner.gd::GDScript::-1::1738918545::0::1::::InvaderSpawner<>Node2D<>::
+laser.gd::GDScript::-1::1738812931::0::1::::Laser<>Area2D<>::
+laser_catcher.gd::GDScript::-1::1738812938::0::1::::<>Area2D<>::
+line_2d.gd::GDScript::-1::1738910143::0::1::::<>Line2D<>::
+lore.gd::GDScript::-1::1738915706::0::1::::<>CanvasLayer<>::
+music_player.gd::GDScript::-1::1738915533::0::1::::<>AudioStreamPlayer<>::
+net.gd::GDScript::-1::1738812950::0::1::::Net<>Area2D<>::
+player.gd::GDScript::-1::1738899727::0::1::::Player<>Area2D<>::
+points_counter.gd::GDScript::-1::1738899727::0::1::::PointsCounter<>Node<>::
+shot_origin.gd::GDScript::-1::1738899727::0::1::::<>Node2D<>::
+spawn_timer.gd::GDScript::-1::1738813001::0::1::::SpawnTimer<>Timer<>::
+start_screen.gd::GDScript::-1::1738914694::0::1::::<>CanvasLayer<>::
+ui.gd::GDScript::-1::1738918415::0::1::::<>CanvasLayer<>::
+::res://Themes/::1738862123

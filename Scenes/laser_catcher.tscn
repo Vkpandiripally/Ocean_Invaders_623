@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://duw7gg6161xho"]
+
+[ext_resource type="Script" path="res://Scripts/laser_catcher.gd" id="1_08owh"]
+[ext_resource type="PackedScene" uid="uid://c7g1tly3yukj7" path="res://Scenes/caught_net.tscn" id="2_8bryh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxbpy"]
+size = Vector2(1225, 18)
+
+[node name="laser_catcher" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_08owh")
+net_scene = ExtResource("2_8bryh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -4)
+shape = SubResource("RectangleShape2D_rxbpy")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

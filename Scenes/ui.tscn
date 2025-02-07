@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://jraisv2tpnhg"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_foqhd"]
+[ext_resource type="FontFile" uid="uid://c5qqg1n7ihlt4" path="res://Assets/font/dogicapixel.ttf" id="2_tiod0"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_foqhd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Points" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.988235, 0.92549, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("2_tiod0")
+theme_override_font_sizes/font_size = 30
+text = "SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0

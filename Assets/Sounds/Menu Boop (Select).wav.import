@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bqfo5kfenjov6"
+path="res://.godot/imported/Menu Boop (Select).wav-0d6a53da243fb5a322f97aaebd1fb5b8.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Menu Boop (Select).wav"
+dest_files=["res://.godot/imported/Menu Boop (Select).wav-0d6a53da243fb5a322f97aaebd1fb5b8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

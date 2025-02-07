@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvaderResource" load_steps=3 format=3 uid="uid://bfsrltt7kbcse"]
+
+[ext_resource type="Script" path="res://Scripts/invader_config.gd" id="1_sir3d"]
+[ext_resource type="Texture2D" uid="uid://cntjk3d645uiv" path="res://Assets/Invaders/pixel_happy_sea-turtle_sprite.png" id="2_3v8dn"]
+
+[resource]
+script = ExtResource("1_sir3d")
+sprite = ExtResource("2_3v8dn")
+width = 15
+animation_name = "friendly_move"
+points = -100

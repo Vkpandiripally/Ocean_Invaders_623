@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://wyy01l5ykmu2"]
+
+[ext_resource type="Script" path="res://Scripts/laser.gd" id="1_wu7st"]
+[ext_resource type="Texture2D" uid="uid://doyknhtkb5006" path="res://Assets/Weapons/trident.png" id="2_7401d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w3e1"]
+size = Vector2(2, 7)
+
+[node name="Laser" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_wu7st")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_7401d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_4w3e1")

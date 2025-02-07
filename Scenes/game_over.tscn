@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4fstfgm7gd8q"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_aml3k"]
+[ext_resource type="Texture2D" uid="uid://dk2yn73k1e2tj" path="res://Assets/Backgrounds/game_over.png" id="3_5qx3d"]
+[ext_resource type="Texture2D" uid="uid://d07pf8kfr76gq" path="res://Assets/UI/menu_button.png" id="5_7csix"]
+[ext_resource type="Texture2D" uid="uid://ci0ibb8hwqsmn" path="res://Assets/UI/replay_button.png" id="5_swqwp"]
+[ext_resource type="Texture2D" uid="uid://ltwrg0cnb7ob" path="res://Assets/UI/replay_button_mousedown.png" id="6_b38gn"]
+[ext_resource type="Texture2D" uid="uid://bqnimxhecnr42" path="res://Assets/UI/menu_button_pressed.png" id="6_hc8re"]
+
+[node name="GameOver" type="CanvasLayer"]
+layer = 9
+script = ExtResource("1_aml3k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+light_mask = 256
+visibility_layer = 256
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+light_mask = 256
+visibility_layer = 256
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="GameOverContainer" type="CenterContainer" parent="MarginContainer"]
+light_mask = 256
+visibility_layer = 256
+layout_mode = 2
+
+[node name="GameOverBox" type="VBoxContainer" parent="MarginContainer/GameOverContainer"]
+light_mask = 256
+visibility_layer = 256
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(639, 359)
+texture = ExtResource("3_5qx3d")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+texture_filter = 1
+offset_left = 656.0
+offset_top = 312.0
+offset_right = 702.0
+offset_bottom = 322.0
+scale = Vector2(5, 5)
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("5_swqwp")
+texture_pressed = ExtResource("6_b38gn")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_direction = 2
+offset_left = 656.0
+offset_top = 384.0
+offset_right = 692.0
+offset_bottom = 394.0
+scale = Vector2(4.71767, 5.23136)
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("5_7csix")
+texture_pressed = ExtResource("6_hc8re")
+
+[connection signal="pressed" from="VBoxContainer2/TextureButton" to="." method="on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer3/TextureButton" to="." method="return_to_menu"]

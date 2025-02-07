@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://ecrrh3v5emmu"]
+
+[ext_resource type="Script" path="res://Scripts/invader.gd" id="1_n2doj"]
+[ext_resource type="PackedScene" uid="uid://c7g1tly3yukj7" path="res://Scenes/caught_net.tscn" id="2_sjrnn"]
+[ext_resource type="Texture2D" uid="uid://citss2jmwpje7" path="res://Assets/Invaders/pixel_lionfish_sprite.png" id="8_alvcd"]
+[ext_resource type="Texture2D" uid="uid://dmsghg5aq8v3u" path="res://Assets/Invaders/pixel_eel_sprite.png" id="8_d67o4"]
+[ext_resource type="Texture2D" uid="uid://wef8b2eqy4lm" path="res://Assets/Invaders/pixel_eel2_sprite.png" id="9_8t2wg"]
+[ext_resource type="Texture2D" uid="uid://u7orewyqmx2t" path="res://Assets/Invaders/pixel_lionfish2_sprite.png" id="9_14c4a"]
+[ext_resource type="Texture2D" uid="uid://c4k6b4ahcwcqh" path="res://Assets/Invaders/starfishsprite1.png" id="10_814gu"]
+[ext_resource type="Texture2D" uid="uid://dh8fiayvid1k6" path="res://Assets/Invaders/starfishsprite2.png" id="11_tixj8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_it4md"]
+radius = 6.00521
+
+[sub_resource type="Animation" id="Animation_7rdw5"]
+resource_name = "move_1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("8_alvcd"), ExtResource("9_14c4a")]
+}
+
+[sub_resource type="Animation" id="Animation_u36to"]
+resource_name = "move_2"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("8_d67o4"), ExtResource("9_8t2wg")]
+}
+
+[sub_resource type="Animation" id="Animation_11bof"]
+resource_name = "move_3"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("10_814gu"), ExtResource("11_tixj8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0xixl"]
+_data = {
+"move_1": SubResource("Animation_7rdw5"),
+"move_2": SubResource("Animation_u36to"),
+"move_3": SubResource("Animation_11bof")
+}
+
+[node name="Invader" type="Area2D"]
+light_mask = 0
+collision_layer = 4
+collision_mask = 34
+script = ExtResource("1_n2doj")
+net_scene = ExtResource("2_sjrnn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_814gu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 34
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_it4md")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0xixl")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,3 +1,11 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+.godot/editor/filesystem_cache8
+.godot/editor/filesystem_cache8
+.godot/editor/project_metadata.cfg
+.godot/editor/script_editor_cache.cfg
+.godot/editor/filesystem_cache8
+.godot/editor/script_editor_cache.cfg
+.godot/global_script_class_cache.cfg
+.godot/uid_cache.bin
