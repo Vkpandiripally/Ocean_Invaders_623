@@ -5,7 +5,7 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var root_node = get_parent().get_parent()
 	var pos1 = Vector2(root_node.get_node("Player").global_position.x, 302) - self.global_position
 	var temp = pos1[0]

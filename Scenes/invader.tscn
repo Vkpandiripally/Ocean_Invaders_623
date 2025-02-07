@@ -13,22 +13,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_it4md"]
 radius = 6.00521
 
-[sub_resource type="Animation" id="Animation_dmbio"]
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_3dy66")]
-}
-
 [sub_resource type="Animation" id="Animation_7rdw5"]
 resource_name = "move_1"
 loop_mode = 1
@@ -75,6 +59,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("10_814gu"), ExtResource("11_tixj8")]
+}
+
+[sub_resource type="Animation" id="Animation_dmbio"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3dy66")]
 }
 
 [sub_resource type="Animation" id="Animation_g25gf"]

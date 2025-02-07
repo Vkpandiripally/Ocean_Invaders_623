@@ -42,12 +42,6 @@ func _process(delta: float) -> void:
 	if (not can_move):
 		return
 	position.x += delta_movement
-				
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "destroy":
-		await get_tree().create_timer(1).timeout
-		player_destroyed.emit()
-		queue_free()
 		
 func _on_area_entered(area: Area2D) -> void:
 	if area is CaughtNet:

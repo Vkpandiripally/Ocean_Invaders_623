@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://du44xk5w13c63"
+path="res://.godot/imported/Low Health Jingle.wav-2a70e36d11a98aa9a56532af2a6f7aee.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Low Health Jingle.wav"
+dest_files=["res://.godot/imported/Low Health Jingle.wav-2a70e36d11a98aa9a56532af2a6f7aee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

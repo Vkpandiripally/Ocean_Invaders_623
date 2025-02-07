@@ -20,5 +20,5 @@ func on_player_destroyed():
 		player.animation_player.play("2_lives")
 	elif lives ==1:
 		player.animation_player.play("1_life")
-	elif lives == 0:
-		player.animation_player.play("dead")
+	#elif lives == 0:
+		#player.animation_player.play("dead")

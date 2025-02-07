@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4d3m1mqpvadr"]
+[gd_scene load_steps=8 format=3 uid="uid://b4d3m1mqpvadr"]
 
 [ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_101l1"]
 [ext_resource type="Texture2D" uid="uid://i7mbj3hatiov" path="res://Assets/Invaders/test_invaders.png" id="3_3rpif"]
-[ext_resource type="Texture2D" uid="uid://c6psurbpd2k2r" path="res://Assets/UI/start_button.png" id="4_4o0dg"]
+[ext_resource type="Texture2D" uid="uid://bm2rsigmebppq" path="res://Assets/UI/start_button_cropped.png" id="4_k0pb6"]
+[ext_resource type="Texture2D" uid="uid://dcqrwxdhs6luh" path="res://Assets/UI/start_button_mousedown.png" id="5_cutka"]
 [ext_resource type="Texture2D" uid="uid://ccctkpd7hgypn" path="res://Assets/Backgrounds/updatedstartscreen.png" id="6_7gg7e"]
+[ext_resource type="Texture2D" uid="uid://cs15mycrjccio" path="res://Assets/UI/exit_button.png" id="6_vthvi"]
+[ext_resource type="Texture2D" uid="uid://dkuiey1y6p73s" path="res://Assets/UI/exit_button_mousedown.png" id="7_84g3i"]
 
 [node name="start_screen" type="CanvasLayer"]
 script = ExtResource("1_101l1")
@@ -21,13 +24,47 @@ position = Vector2(640, 360)
 texture = ExtResource("6_7gg7e")
 metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="."]
-offset_left = 520.0
-offset_top = 280.0
-offset_right = 628.0
-offset_bottom = 388.0
-scale = Vector2(2.74517, 2.56314)
-icon = ExtResource("4_4o0dg")
-flat = true
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -24.0
+offset_right = -37.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+alignment = 1
 
-[connection signal="pressed" from="Button" to="." method="load_lore"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("4_k0pb6")
+texture_pressed = ExtResource("5_cutka")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 146.0
+offset_right = -15.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("6_vthvi")
+texture_pressed = ExtResource("7_84g3i")
+
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="load_lore"]
+[connection signal="pressed" from="VBoxContainer2/TextureButton" to="." method="exit"]

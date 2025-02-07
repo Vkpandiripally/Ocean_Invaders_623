@@ -1,14 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://fupd1v1pxa3a"]
+[gd_scene load_steps=13 format=3 uid="uid://fupd1v1pxa3a"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gt454"]
 [ext_resource type="Texture2D" uid="uid://3srt88pwb7dt" path="res://Assets/Player/pixel_yellow_submarine_sprite.png" id="2_8vyde"]
-[ext_resource type="Texture2D" uid="uid://dt0af4o7yh41a" path="res://Assets/Player/Player.png" id="2_11s6y"]
 [ext_resource type="Script" path="res://Scripts/shot_origin.gd" id="3_2uoqw"]
 [ext_resource type="PackedScene" uid="uid://wyy01l5ykmu2" path="res://Scenes/laser.tscn" id="4_mdyvr"]
 [ext_resource type="PackedScene" uid="uid://bdgap12mrcbmo" path="res://Scenes/net.tscn" id="5_dm8jl"]
-[ext_resource type="Texture2D" uid="uid://bi2vdab3slwgf" path="res://Assets/Player/Player-explosion1.png" id="5_svn4r"]
-[ext_resource type="Texture2D" uid="uid://b4mk25ro2nqtu" path="res://Assets/Player/Player-explosion2.png" id="6_2m5vu"]
-[ext_resource type="Texture2D" uid="uid://dsg2krqtkgnca" path="res://Assets/Player/Player-explosion3.png" id="7_4ifek"]
 [ext_resource type="Texture2D" uid="uid://cuyc3su8wvmlp" path="res://Assets/Player/pixel_red_submarine_sprite.png" id="7_ajpip"]
 [ext_resource type="Texture2D" uid="uid://b2mv808mxn8cj" path="res://Assets/Player/pixel_orange_submarine_sprite.png" id="9_uirmi"]
 
@@ -62,45 +58,11 @@ tracks/0/keys = {
 "values": [ExtResource("2_8vyde")]
 }
 
-[sub_resource type="Animation" id="Animation_5cy4w"]
-resource_name = "dead"
-length = 2.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("2_11s6y"), ExtResource("7_4ifek")]
-}
-
-[sub_resource type="Animation" id="Animation_gqwrm"]
-resource_name = "player_destroy"
-length = 2.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek"), ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek"), ExtResource("5_svn4r"), ExtResource("6_2m5vu"), ExtResource("7_4ifek")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yeknq"]
 _data = {
 "1_life": SubResource("Animation_6cr07"),
 "2_lives": SubResource("Animation_7cjrk"),
-"RESET": SubResource("Animation_6c2ys"),
-"dead": SubResource("Animation_5cy4w"),
-"player_destroy": SubResource("Animation_gqwrm")
+"RESET": SubResource("Animation_6c2ys")
 }
 
 [node name="Player" type="Area2D"]

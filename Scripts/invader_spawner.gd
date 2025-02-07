@@ -4,7 +4,6 @@ class_name InvaderSpawner
 
 signal invader_destroyed(points: int)
 signal friendly_destroyed(is_net: bool)
-signal game_won
 signal game_lost
 
 # Normal game config: ROWS=5, COLS=8
@@ -93,7 +92,7 @@ func spawn_invader(invader_config, spawn_position: Vector2):
 	invader.config = invader_config
 	invader.global_position = spawn_position
 	invader.invader_destroyed.connect(on_invader_destroyed)
-	add_child(invader)
+	call_deferred("add_child", invader)
 	
 func move_invaders():
 	position.x += (INVADERS_POSITION_X_INCREMENT * movement_direction)
@@ -103,14 +102,14 @@ func spawn_friendly(friendly_config, spawn_position: Vector2):
 	friendly.config = friendly_config
 	friendly.global_position = spawn_position
 	friendly.friendly_destroyed.connect(on_friendly_destroyed)
-	add_child(friendly)
+	call_deferred("add_child", friendly)
 
-func _on_left_wall_area_entered(area: Area2D) -> void:
+func _on_left_wall_area_entered(_area: Area2D) -> void:
 	if (movement_direction == -1):
 		position.y += INVADERS_POSITION_Y_INCREMENT
 		movement_direction *= -1
 
-func _on_right_wall_area_entered(area: Area2D) -> void:
+func _on_right_wall_area_entered(_area: Area2D) -> void:
 	if (movement_direction == 1):
 		position.y += INVADERS_POSITION_Y_INCREMENT
 		movement_direction *= -1
@@ -124,7 +123,6 @@ func on_invader_shot():
 		get_tree().root.add_child(invader_shot)
 	
 func on_invader_destroyed(points: int):
-	print("Total invaders: ", invader_total_count)
 	invader_destroyed.emit(points)
 	invader_destroyed_count += 1
 	print("Invader destroyed. Count: ", invader_destroyed_count)
@@ -135,20 +133,16 @@ func on_invader_destroyed(points: int):
 func on_friendly_destroyed(is_net: bool):
 	friendly_destroyed.emit(is_net)
 	var life_manager = get_node("../LifeManager") as LifeManager
-	var player = get_node("../Player") as Player
 	if !is_net:
 		if life_manager:
 			life_manager.on_player_destroyed()
 		else:
 			print("Life manager not called")
 	invader_destroyed_count += 1
-	print(invader_destroyed_count)
 	if invader_destroyed_count == invader_total_count && life_manager.lives > 0:
 		start_new_wave()
 			
 func start_new_wave():
-	var life_manager = get_node("../LifeManager") as LifeManager
-	
 	INVADERS_POSITION_X_INCREMENT += 2
 
 	print("current speed is: " + str(INVADERS_POSITION_X_INCREMENT))
@@ -162,7 +156,7 @@ func start_new_wave():
 		
 	spawn_wave()
 		
-func _on_bottom_wall_area_entered(area):
+func _on_bottom_wall_area_entered(_area):
 	game_lost.emit()
 	movement_timer.stop()
 	movement_direction = 0
@@ -191,8 +185,7 @@ func game_over():
 	var player = get_node("../Player")
 	if player:
 		player.set_process(false)  # Disable player script execution
-	# Delay before transitioning (optional, for effect)
-	await get_tree().create_timer(1.0).timeout
+
 	# Change scene to the game over screen
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 	on_game_lost()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4fstfgm7gd8q"]
+[gd_scene load_steps=7 format=3 uid="uid://d4fstfgm7gd8q"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_aml3k"]
-[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="2_ckkn5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q42ge"]
-bg_color = Color(0.892876, 0.288756, 0.927108, 1)
+[ext_resource type="Texture2D" uid="uid://cs15mycrjccio" path="res://Assets/UI/exit_button.png" id="3_4exhy"]
+[ext_resource type="Texture2D" uid="uid://dk2yn73k1e2tj" path="res://Assets/Backgrounds/game_over.png" id="3_5qx3d"]
+[ext_resource type="Texture2D" uid="uid://dkuiey1y6p73s" path="res://Assets/UI/exit_button_mousedown.png" id="4_ey8hg"]
+[ext_resource type="Texture2D" uid="uid://ci0ibb8hwqsmn" path="res://Assets/UI/replay_button.png" id="5_swqwp"]
+[ext_resource type="Texture2D" uid="uid://ltwrg0cnb7ob" path="res://Assets/UI/replay_button_mousedown.png" id="6_b38gn"]
 
 [node name="GameOver" type="CanvasLayer"]
 layer = 9
@@ -40,22 +41,46 @@ light_mask = 256
 visibility_layer = 256
 layout_mode = 2
 
-[node name="GameOverLabel" type="Label" parent="MarginContainer/GameOverContainer/GameOverBox"]
-unique_name_in_owner = true
-light_mask = 256
-visibility_layer = 256
-layout_mode = 2
-theme_override_colors/font_color = Color(0.976471, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ckkn5")
-theme_override_font_sizes/font_size = 60
-text = "GAME OVER"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(639, 359)
+texture = ExtResource("3_5qx3d")
 
-[node name="GameOverButton" type="Button" parent="MarginContainer/GameOverContainer/GameOverBox"]
-unique_name_in_owner = true
-light_mask = 256
-visibility_layer = 256
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+texture_filter = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = 75.0
+offset_right = -418.0
+offset_bottom = 125.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(4, 4)
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_q42ge")
-text = "RESTART"
+texture_normal = ExtResource("3_4exhy")
+texture_pressed = ExtResource("4_ey8hg")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+texture_filter = 1
+offset_left = 793.0
+offset_top = 361.0
+offset_right = 839.0
+offset_bottom = 371.0
+scale = Vector2(5, 5)
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("5_swqwp")
+texture_pressed = ExtResource("6_b38gn")
+
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="exit"]
+[connection signal="pressed" from="VBoxContainer2/TextureButton" to="." method="on_restart_button_pressed"]
